@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./style/main.css">
 </head>
 
-<body>
+<body onload="onInit()">
     <header class="main-header">
         <nav>
             <div class="logo">meme generator</div>
@@ -28,16 +28,28 @@
     <main class="main-content">
         <section class="gallery-container"></section>
 
-        <dialog class="meme-editor">
+
+        <!-- Change the section later to a dialog -->
+        <section class="meme-editor">
             <button onclick="" class="btn-close-editor btn-editor-ui">✕</button>
-            <section class="img-container"></section>
-            <aside class="controls"></aside>
-        </dialog>
+            <section class="canvas-container">
+                <canvas width="400" height="400" onclick="onDraw(event)"></canvas>
+            </section>
+            <aside class="controls">
+                <!-- ?form? -->
+                <input type="text" id="text" name="text" value="ADD TEXT" oninput="onTxtInput(this, this.value)">
+            </aside>
+        </section>
 
     </main>
 
     <footer>@Made By Yana Pletner 2024</footer>
 
+    <!-- Services -->
+    <script src="js/services/meme.service.js"></script>
+
+    <!-- Conrollers -->
+    <script src="js/meme.controller.js"></script>
 </body>
 
 </html>
