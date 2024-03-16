@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme generator</title>
     <link rel="stylesheet" href="./style/main.css">
+
+    <script src="https://kit.fontawesome.com/05d66dc80e.js" crossorigin="anonymous"></script>
 </head>
 
 <body onload="onInit()">
@@ -35,16 +37,19 @@
         <section class="meme-editor">
             <button onclick="" class="btn-close-editor btn-editor-ui">✕</button>
             <section class="canvas-container">
-                <canvas width="400" height="400" onclick="onDraw(event)"></canvas>
+                <canvas width="400" height="400"></canvas>
             </section>
             <aside class="controls">
                 <!-- ?form? -->
-                <input type="text" id="text" name="text" value="ADD TEXT" oninput="onTxtInput(this, this.value)">
+                <input type="text" id="text" name="text" value="ADD TEXT" oninput="onTxtInput(this.value)">
                 <a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a>
                 <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
-                    onchange="onColorPick(event)">
+                    onchange="onColorPick(this.value)">
                 <button onclick="onIncreaseFontSize()">+A</button>
                 <button onclick="onDecreaseFontSize()">-A</button>
+
+                <button onclick="onAddLine()">+</button>
+                <button onclick="onSwitchLine()"><i class="fa-solid fa-shuffle"></i></button>
             </aside>
         </section>
         <!-- *************************** -->
