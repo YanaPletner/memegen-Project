@@ -30,3 +30,10 @@ function onTxtInput(el, text) {
     setLineTxt(text)
     renderMeme()
 }
+
+function onDownloadCanvas(elLink) {
+    elLink.download = 'my-img'
+
+    const dataUrl = gElCanvas.toDataURL()
+    elLink.href = dataUrl
+}
