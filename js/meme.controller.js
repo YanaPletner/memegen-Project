@@ -8,23 +8,34 @@ function renderMeme() {
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
-        // Render text on top of the img
-        const lines = getLineTxt()
-
-        lines.forEach((line, idx) => {
-            gCtx.fillStyle = getTxtColor(idx)
-            // gCtx.strokeStyle = 'black'
-
-            gCtx.font = `${getTxtSize(idx)}px Arial`
-            gCtx.textAlign = 'center'
-
-            gCtx.fillText(line, gElCanvas.width / 2, gElCanvas.height / 2)
-            // gCtx.strokeText(line, gElCanvas.width / 2, gElCanvas.height / 2)
-
-            // Draw frame around selected line
-            renderSelectedLineFrame(line, idx)
-        })
+        renderLines()
     }
+}
+
+function renderLines() {
+    const lines = getLinesTxtMap()
+
+    lines.forEach((line, idx) => {
+        const { txt, size, color } = getLine(idx)
+
+        gCtx.fillStyle = color
+        //getTxtColor(idx)
+        // gCtx.strokeStyle = 'black'
+
+        gCtx.font = `${size}px Arial`
+        //`${getTxtSize(idx)}px Arial`
+        gCtx.textAlign = 'center'
+
+        const x = gElCanvas.width / 2
+        const y = gElCanvas.height / 2
+
+        gCtx.fillText(txt, x, y)
+        // gCtx.fillText(line, x, y)
+        setLinePos(idx, x, y)
+        // gCtx.strokeText(line, x, y)
+
+        renderSelectedLineFrame(line, idx)
+    })
 }
 
 function renderSelectedLineFrame(line, idx) {
@@ -66,9 +77,9 @@ function onColorPick(color) {
     renderMeme()
 }
 
-function onAddLine() {
+function onAddLine(ev) {
     const newText = document.getElementById('text').value
-    addLine(newText)
+    addLine(newText, ev.x, ev.y)
     renderMeme()
     renderSelectedLineFrame()
 }
