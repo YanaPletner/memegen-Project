@@ -27,9 +27,10 @@
 
     <main class="main-content">
         <section class="gallery-container">
-            <img src='meme-imgs/meme-imgs (square)/1.jpg' onclick="onImgSelect(this)" class="id-1">
+            <!-- <img src='meme-imgs/meme-imgs (square)/1.jpg' onclick="onImgSelect(this)" class="id-1"> -->
         </section>
 
+        <!-- ***************************** -->
         <!-- Change the section later to a dialog -->
         <section class="meme-editor">
             <button onclick="" class="btn-close-editor btn-editor-ui">✕</button>
@@ -39,9 +40,14 @@
             <aside class="controls">
                 <!-- ?form? -->
                 <input type="text" id="text" name="text" value="ADD TEXT" oninput="onTxtInput(this, this.value)">
+                <a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a>
+                <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
+                    onchange="onColorPick(event)">
+                <button onclick="onIncreaseFontSize()">+A</button>
+                <button onclick="onDecreaseFontSize()">-A</button>
             </aside>
         </section>
-
+        <!-- *************************** -->
     </main>
 
     <footer>@Made By Yana Pletner 2024</footer>
