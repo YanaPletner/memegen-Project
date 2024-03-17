@@ -41,15 +41,15 @@
             </section>
             <aside class="controls">
                 <!-- ?form? -->
-                <input type="text" id="text" name="text" value="ADD TEXT" oninput="onTxtInput(this.value)">
+                <input type="text" id="text" name="text" value="ADD TEXT" oninput="onTxtLineInput(this.value)">
                 <a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a>
                 <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
                     onchange="onColorPick(this.value)">
-                <button onclick="onIncreaseFontSize()">+A</button>
-                <button onclick="onDecreaseFontSize()">-A</button>
+                <button onclick="onIncreaseTxtLineFontSize()">+A</button>
+                <button onclick="onDecreaseTxtLineFontSize()">-A</button>
 
-                <button onclick="onAddLine()">+</button>
-                <button onclick="onSwitchLine()"><i class="fa-solid fa-shuffle"></i></button>
+                <button onclick="onAddLine(event)">+</button>
+                <button onclick="onSwitchTxtLine()"><i class="fa-solid fa-shuffle"></i></button>
             </aside>
         </section>
         <!-- *************************** -->

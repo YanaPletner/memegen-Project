@@ -4,89 +4,103 @@ function renderMeme() {
     const elImg = new Image()
     elImg.src = `meme-imgs/meme-imgs (square)/${getMeme()}.jpg`
 
-    //Render an img on canvas
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
-        renderLines()
+        renderTxtLines()
     }
 }
 
-function renderLines() {
-    const lines = getLinesTxtMap()
+function renderTxtLines() {
+    const lines = getTxtLines()
+
 
     lines.forEach((line, idx) => {
-        const { txt, size, color } = getLine(idx)
+        const { txt, size, color, pos } = line
+        const { x, y } = pos
 
         gCtx.fillStyle = color
-        //getTxtColor(idx)
         // gCtx.strokeStyle = 'black'
 
         gCtx.font = `${size}px Arial`
-        //`${getTxtSize(idx)}px Arial`
         gCtx.textAlign = 'center'
 
-        const x = gElCanvas.width / 2
-        const y = gElCanvas.height / 2
+        // const x = gElCanvas.width / 2
+        // const y = gElCanvas.height / 2
 
         gCtx.fillText(txt, x, y)
-        // gCtx.fillText(line, x, y)
-        setLinePos(idx, x, y)
         // gCtx.strokeText(line, x, y)
 
-        renderSelectedLineFrame(line, idx)
+        const textWidth = gCtx.measureText(line.txt).width
+        const textHeight = line.size
+
+        setTxtLineWidth(textWidth)
+        setTxtLineHeight(textHeight)
+
+        renderSelectedTxtLineFrame(idx)
+
     })
+
 }
 
-function renderSelectedLineFrame(line, idx) {
-    if (idx === getSelectedLineIdx()) {
-        const textWidth = gCtx.measureText(line).width
-        const textHeight = parseInt(gCtx.font)
 
-        const framePadding = 5
+function renderSelectedTxtLineFrame(idx) {
+    const selectedLineIdx = getSelectedTxtLineIdx()
 
-        const frameX = (gElCanvas.width - textWidth) / 2 - framePadding
-        const frameY = (gElCanvas.height / 2) - textHeight - framePadding
+    if (idx === selectedLineIdx) {
+        const textWidth = getTxtLineWidth()
+        const textHeight = getTxtLineHeight()
+        const { x, y } = getTxtLinePos()
 
-        const frameWidth = textWidth + (framePadding * 2)
-        const frameHeight = textHeight + (framePadding * 2)
+        const frameX = x - textWidth / 2 - 10
+        const frameY = y - textHeight / 2 - 20
+        const frameWidth = textWidth + 25
+        const frameHeight = textHeight + 20
 
         gCtx.strokeStyle = 'black'
         gCtx.lineWidth = 2
         gCtx.strokeRect(frameX, frameY, frameWidth, frameHeight)
     }
+
 }
 
-function onTxtInput(text) {
-    setLineTxt(text)
+function renderTxtLineInInput() {
+    document.getElementById('text').value = getSelectedTxtLine()
+}
+
+function onTxtLineInput(text) {
+    setTxtLine(text)
     renderMeme()
 }
 
-function onIncreaseFontSize() {
-    increaseFontSize()
+function onIncreaseTxtLineFontSize() {
+    increaseTxtLineFontSize()
     renderMeme()
 }
 
-function onDecreaseFontSize() {
-    decreaseFontSize()
+function onDecreaseTxtLineFontSize() {
+    decreaseTxtLineFontSize()
     renderMeme()
 }
 
 function onColorPick(color) {
-    setTxtColor(color)
+    setTxtLineColor(color)
     renderMeme()
 }
 
 function onAddLine(ev) {
-    const newText = document.getElementById('text').value
-    addLine(newText, ev.x, ev.y)
+    let newText = document.getElementById('text').value
+    newText = 'ADD TEXT'
+
+    addTxtLine(newText)
     renderMeme()
-    renderSelectedLineFrame()
+    renderTxtLineInInput()
 }
 
-function onSwitchLine() {
-    switchLine()
+function onSwitchTxtLine() {
+    switchTxtLine()
     renderMeme()
+    renderTxtLineInInput()
 }
 
 function onDownloadCanvas(elLink) {
@@ -95,3 +109,21 @@ function onDownloadCanvas(elLink) {
     const dataUrl = gElCanvas.toDataURL()
     elLink.href = dataUrl
 }
+
+// function onCanvasClick(ev) {
+//     gStartPos = getEvPos(ev)
+
+//     const lines = getTxtLines()
+//     for (let idx = 0; idx < lines.length; idx++) {
+//         if (isTxtLineClicked(gStartPos)) {
+//             // setSelectedTxtLineIdx(idx)
+//             // console.log(getMeme.selectedLineIdx)
+//             renderSelectedTxtLineFrame(idx)
+//             renderTxtLineInInput()
+//             renderMeme()
+//             return
+//         }
+//     }
+// }
+
+
