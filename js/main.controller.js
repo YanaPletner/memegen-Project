@@ -3,6 +3,8 @@
 let gElCanvas
 let gCtx
 let gStartPos
+let gClickPos
+
 
 const TOUCH_EVENTS = ['touchstart', 'touchmove', 'touchend']
 
@@ -18,8 +20,8 @@ function onInit() {
 }
 
 function addMouseListeners() {
-    // gElCanvas.addEventListener('click', onTxtLineClick)
-    gElCanvas.addEventListener('mousedown', onDown)
+    gElCanvas.addEventListener('click', onTxtLineClick)
+    // gElCanvas.addEventListener('mousedown', onDown)
     // gElCanvas.addEventListener('mousemove', onMove)
     // gElCanvas.addEventListener('mouseup', onUp)
 }
@@ -31,31 +33,54 @@ function addMouseListeners() {
 // }
 
 
-function onDown(ev) {
-    gStartPos = getEvPos(ev)
 
-    const lines = getTxtLines()
-    for (let idx = 0; idx < lines.length; idx++) {
-        console.log(isTxtLineClicked(gStartPos))
 
-        if (isTxtLineClicked(gStartPos)) {
-            // setSelectedTxtLineIdx(idx)
-            renderSelectedTxtLineFrame(idx)
-            renderTxtLineInInput()
-            renderMeme()
-            return
-        }
-    }
+// function onDown(ev) {
+//     ev.preventDefault()
+//     gStartPos = getEvPos(ev)
+//     console.log(isTxtLineClicked(gStartPos))
 
-    if (!isTxtLineClicked(gStartPos)) return
+//     const lines = getTxtLines()
+//     for (let idx = 0; idx < lines.length; idx++) {
 
-    setTxtLineDrag(true)
-    document.body.style.cursor = 'grab'
-}
+// if (isTxtLineClicked(gStartPos)) {
+// console.log(idx)
+// setSelectedTxtLineIdx(idx)
+// console.log(gMeme.selectedLineIdx)
+//         renderSelectedTxtLineFrame(idx)
+//         renderTxtLineInInput()
+//         renderMeme()
+//         return
+// }
+// }
+
+// if (!isTxtLineClicked(gStartPos)) return
+
+// setTxtLineDrag(true)
+// document.body.style.cursor = 'grab'
+// }
+
+// function onDown(ev) {
+//     gStartPos = getEvPos(ev)
+
+//     const lines = getTxtLines()
+//     for (let idx = 0; idx < lines.length; idx++) {
+//         if (isTxtLineClicked(lines[idx], gStartPos)) {
+//             setSelectedTxtLineIdx(idx)
+
+//             renderSelectedTxtLineFrame(idx)
+
+//             return
+//         }
+//     }
+
+// }
 
 
 
 // function onMove(ev) {
+// ev.preventDefault()
+
 //     const { isDrag } = getTxtLines()
 //     if (!isDrag) return
 
@@ -83,14 +108,14 @@ function onDown(ev) {
 
 
 // function onUp() {
+// ev.preventDefault()
+
 //     setTxtLineDrag(false)
 //     document.body.style.cursor = 'auto'
 // }
 
 
 function getEvPos(ev) {
-    // console.log(ev.offsetX, ev.offsetY)
-
     if (TOUCH_EVENTS.includes(ev.type)) {
 
         ev.preventDefault()

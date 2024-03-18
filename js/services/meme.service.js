@@ -2,7 +2,7 @@
 
 var gMeme = {
     selectedImgId: 5,  //1-43
-    selectedLineIdx: 0,
+    selectedLineIdx: 1,
     lines: [
         {
             txt: 'Sometimes I eat Falafel',
@@ -26,7 +26,7 @@ function setImg(imgId) {
 }
 
 function getMeme() {
-    return gMeme.selectedImgId
+    return gMeme
 }
 
 function getTxtLines() {
@@ -37,28 +37,21 @@ function getSelectedTxtLineIdx() {
     return gMeme.selectedLineIdx
 }
 
-function setSelectedTxtLineIdx(idx) {
-    gMeme.selectedLineIdx = idx
-}
-
 function setTxtLine(text) {
     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
     selectedLine.txt = text
 }
 
-function getSelectedTxtLine() {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    return selectedLine.txt
-}
-
 function increaseTxtLineFontSize() {
     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    selectedLine.size += 2
+    // selectedLine.size += 2
+    _setTxtLineSize(selectedLine.size + 2, gMeme.selectedLineIdx)
 }
 
 function decreaseTxtLineFontSize() {
     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    selectedLine.size -= 2
+    // selectedLine.size -= 2
+    _setTxtLineSize(selectedLine.size - 2, gMeme.selectedLineIdx)
 }
 
 function setTxtLineColor(color) {
@@ -71,10 +64,10 @@ function addTxtLine(text) {
         txt: text,
         size: 20,
         color: 'white',
-        isDrag: false,
         pos: { x: 315, y: 30 },
+        isDrag: false,
+        isSelected: false,
     })
-
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
@@ -84,56 +77,64 @@ function switchTxtLine() {
     }
 }
 
-function setTxtLinePos(x, y) { //*************//
+
+
+function setTxtLinePos(x, y) {
     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
     selectedLine.pos = { x, y }
 }
 
-function getTxtLinePos() {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    return selectedLine.pos
-}
-
-function setTxtLineWidth(width) {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+function setTxtLineWidth(width, idx) {
+    const selectedLine = gMeme.lines[idx]
     selectedLine.width = width
 }
 
-function getTxtLineWidth() {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    return selectedLine.width
-}
-
-function setTxtLineHeight(height) {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    selectedLine.height = height
-}
-
-function getTxtLineHeight() {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    return selectedLine.height
-}
-
-
 function isTxtLineClicked(clickedPos) {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    const { height, width, pos } = selectedLine
-    const { x, y } = pos//selectedLine.pos
+    const lines = gMeme.lines;
+    let isClicked = false;
 
-    const distanceX = Math.sqrt((x - clickedPos.x) ** 2)
-    const distanceY = Math.sqrt((y - clickedPos.y) ** 2)
+    lines.forEach(line => {
+        const { pos, size, width } = line;
+        const { x, y } = pos;
 
-    return distanceY <= height && distanceX <= width
+        const textLeftX = x - width / 2;
+        const textRightX = x + width / 2;
+        const textTopY = y - size / 2;
+        const textBottomY = y + size / 2;
+
+        if (
+            clickedPos.x >= textLeftX &&
+            clickedPos.x <= textRightX &&
+            clickedPos.y >= textTopY &&
+            clickedPos.y <= textBottomY
+        ) {
+            isClicked = true;
+        }
+    });
+
+    return isClicked;
 }
 
-function setTxtLineDrag(isDrag) {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    selectedLine.isDrag = isDrag
+
+
+// function setTxtLineDrag(isDrag) {
+//     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+//     selectedLine.isDrag = isDrag
+// }
+
+// function moveTxtLine(dx, dy) {
+//     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+
+//     selectedLine.pos.x += dx
+//     selectedLine.pos.y += dy
+// }
+
+
+function setSelectedTxtLineIdx(idx) {
+    gMeme.selectedLineIdx = idx
 }
 
-function moveTxtLine(dx, dy) {
-    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-
-    selectedLine.pos.x += dx
-    selectedLine.pos.y += dy
+function _setTxtLineSize(size, idx) {
+    const selectedLine = gMeme.lines[idx]
+    selectedLine.size = size
 }
