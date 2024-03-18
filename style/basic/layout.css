@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+.logo {
+    justify-self: start;
+    align-self: center;
+}
+
+.main-header-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

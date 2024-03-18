@@ -1,2 +1,14 @@
-@import "./setup/vars.css";
+/* @import "./setup/vars.css";
 @import "./setup/font-face.css";
+
+@import "./basic/helpers";
+@import "./basic/layout.css"; */
+
+@import url(/style/setup/vars.css);
+@import url(/style/setup/font-face.css);
+
+@import url(/style/basic/helpers.css);
+@import url(/style/basic/layout.css);
+
+@import url(/style/components/header.css);
+@import url(/style/components/gallery.css);

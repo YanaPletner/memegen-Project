@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+.search-bar {
+    margin-block-start: 10em;
+}
+
+.gallery-container {
+    margin-block-start: 10em;
+}

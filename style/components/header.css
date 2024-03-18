@@ -1,0 +1,32 @@
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background-color: rgba(112, 214, 132, 0.5);
+    border: 1px solid rgb(96, 231, 125)
+}
+
+.logo {
+    margin-inline-start: 2em;
+    font-size: 2em;
+}
+
+.main-nav-list {
+    margin: 0;
+}
+
+.main-nav-list li a {
+    text-decoration: none;
+    height: 5rem;
+    width: 6rem;
+
+    color: black;
+    font-size: 1.5em;
+}
+
+.main-nav-list li:hover a {
+    color: rgb(236, 237, 236);
+    background-color: rgba(75, 138, 88, 0.5);
+}
