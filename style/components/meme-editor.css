@@ -55,17 +55,18 @@
     margin: 0 auto 2.5em;
 }
 
-.meme-editor .controls>*:not(input#text) {
-    margin-left: 4em;
+.meme-editor .controls>* {
+    margin-inline-start: 4em;
 }
 
 input#text {
     height: 36px;
-    width: 100%;
     min-width: 12rem;
 
-    padding: 5px 10px;
+    margin: 0;
+    margin-inline-start: 4.5em;
     margin-block-end: 1em;
+    padding: 5px 10px;
 
     color: rgb(14, 14, 16);
     font-size: 14px;

@@ -2,7 +2,7 @@
     --header-bgc: rgba(112, 214, 132, 0.5);
     --header-border: rgb(96, 231, 125);
 
-    --header-main-nav-list: rgba(75, 138, 88, 0.5);
+    --header-list-hover: rgba(122, 231, 144, 0.5);
     --list-hover: rgb(236, 237, 236);
     --shadow: rgb(49, 77, 41);
 }
