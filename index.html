@@ -50,13 +50,12 @@
 
                 <button onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
                 <button onclick="onSwitchTxtLine()"><i class="fa-solid fa-arrow-down-up-across-line"></i></button>
-                <!-- <button onclick="onSwitchTxtLine()"><i class="fa-solid fa-shuffle"></i></button> -->
                 <br>
                 <label data-trans="font" for="fontFamily">Font</label>
-                <select onchange="onChangeFont('family',this)" name="fontFamilies" id="fontFamily">
+                <select onchange="onChangeFont(this.value)" name="fontFamilies" id="fontFamily">
                     <option value="impact">Impact</option>
                     <option value="arial">Arial</option>
-                    <option value="tahoma">Tahoma</option>
+                    <option value="Courier New">Courier New</option>
                 </select>
                 <br>
                 <section class="text-align-controls widget-center">

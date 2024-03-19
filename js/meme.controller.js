@@ -24,7 +24,7 @@ function renderTxtLines() {
 
         gCtx.fillStyle = color
 
-        gCtx.font = `${size}px Arial`
+        gCtx.font = `${size}px ${getTxtLintFont(idx)}`
         gCtx.textAlign = 'center'
 
         gCtx.fillText(txt, x, y)
@@ -131,10 +131,30 @@ function onTxtLineClick(ev) {
     })
 }
 
-// 
+function onChangeFont(font) {
+    console.log(font)
+    setTtxLineFont(font)
+    renderMeme()
+}
 
 function onAlign(action) {
+    const lines = getTxtLines()
     const idx = getSelectedTxtLineIdx()
-    alignTxtLine(idx, action)
+    const line = lines[idx]
+
+    switch (action) {
+        case 'left':
+            line.pos.x = line.width / 2 + 10
+            break
+        case 'center':
+            line.pos.x = gElCanvas.width / 2
+            break
+        case 'right':
+            line.pos.x = gElCanvas.width - line.width / 2 - 10
+            break
+        default:
+            break
+    }
+
     renderMeme()
 }
