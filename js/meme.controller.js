@@ -35,21 +35,21 @@ function renderTxtLines() {
     })
 }
 
-function renderRectAroundText(idx) {
-    const lines = getTxtLines()
+// function renderRectAroundText(idx) {
+//     const lines = getTxtLines()
 
-    const { width, size, pos } = lines[idx]
-    const { x, y } = pos
+//     const { width, size, pos } = lines[idx]
+//     const { x, y } = pos
 
-    const frameX = x - width / 2 - 10
-    const frameY = y - size / 2 - 20
-    const frameWidth = width + 25
-    const frameHeight = size + 20
-    gCtx.beginPath()
-    gCtx.strokeStyle = 'black'
-    gCtx.lineWidth = 2
-    gCtx.strokeRect(frameX, frameY, frameWidth, frameHeight)
-}
+//     const frameX = x - width / 2 - 10
+//     const frameY = y - size / 2 - 20
+//     const frameWidth = width + 25
+//     const frameHeight = size + 20
+//     gCtx.beginPath()
+//     gCtx.strokeStyle = 'black'
+//     gCtx.lineWidth = 2
+//     gCtx.strokeRect(frameX, frameY, frameWidth, frameHeight)
+// }
 
 function renderTxtLineInInput() {
     const idx = getSelectedTxtLineIdx()
@@ -66,8 +66,8 @@ function onTxtLineInput(text) {
 function onIncreaseTxtLineFontSize() {
     increaseTxtLineFontSize()
 
-    const idx = getSelectedTxtLineIdx()
-    renderRectAroundText(idx)
+    // const idx = getSelectedTxtLineIdx()
+    // renderRectAroundText(idx)
     renderMeme()
 }
 
@@ -75,7 +75,7 @@ function onDecreaseTxtLineFontSize() {
     decreaseTxtLineFontSize()
 
     const idx = getSelectedTxtLineIdx()
-    renderRectAroundText(idx)
+    // renderRectAroundText(idx)
 
     renderMeme()
 }
@@ -117,7 +117,7 @@ function onTxtLineClick(ev) {
     const lines = getTxtLines()
 
     lines.forEach((line, idx) => {
-        const { size, width, pos } = line
+        const { txt, size, width, pos } = line
         const { x, y } = pos
 
         const distanceX = Math.abs(x - clickedX)
@@ -125,7 +125,6 @@ function onTxtLineClick(ev) {
 
         if (distanceY <= size && distanceX <= width) {
             setSelectedTxtLineIdx(idx)
-            renderRectAroundText(idx)
             renderTxtLineInInput()
 
             return

@@ -1,18 +1,21 @@
 .meme-editor {
     position: fixed;
+
+    height: 100%;
     max-width: calc(100vw);
     max-height: calc(100vh - 55.19px);
+
     /* inset: 0;  DONT EARASE */
     margin-block-start: auto;
-    background-color: whitesmoke;
     padding: 1.33em;
+
+    background-color: whitesmoke;
     box-shadow: 0px 30px 50px -30px var(--shadow);
     transition: opacity 0.4s, transform 0.5s;
-    z-index: 3;
-    height: 100%;
     /* opacity: 0; DONT EARASE */
     /* pointer-events: none; */
     overflow-y: auto;
+    z-index: 3;
 }
 
 .btn-close-editor {
@@ -22,8 +25,9 @@
     top: 0;
     left: 0;
 
-    /* background-color: transparent; */
-    /* border-radius: 0rem 0.5rem 2rem 0.5rem; DONT EARASE */
+    border: 0;
+    background-color: Transparent;
+    cursor: pointer;
 }
 
 .canvas-container {
@@ -38,8 +42,7 @@
 .canvas-container canvas {
     box-shadow: 0px 30px 30px -20px var(--shadow);
     border-radius: 0.5em;
-    margin: auto;
-    margin: 2.5em auto 1em;
+    margin-block-start: 1.35em;
 }
 
 .meme-editor .controls {
