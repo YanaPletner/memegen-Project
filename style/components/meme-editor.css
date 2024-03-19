@@ -2,20 +2,10 @@
     justify-content: center;
     position: fixed;
 
-    height: 100%;
-    /* height: calc(100% - 5rem); */
-    /* height: 100%; */
     max-width: calc(100vw);
-    /* max-height: 100vh; */
 
-    /* inset: 0; */
-    top: 200px;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    /* DONT EARASE */
-    margin-block-start: auto;
-    padding: 1.33em;
+    inset: 0;
+    padding-block: 10em;
 
     background-color: whitesmoke;
     box-shadow: 0px 30px 50px -30px var(--shadow);
@@ -30,8 +20,8 @@
     font-weight: 900;
     font-size: 1.5rem;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 1em;
+    left: 1em;
 
     border: 0;
     background-color: Transparent;
@@ -50,21 +40,20 @@
 }
 
 .canvas-container canvas {
-    margin: 0;
     box-shadow: 0px 30px 30px -20px var(--shadow);
     border-radius: 0.5em;
-    margin-block-start: 1.35em;
-    align-items: end;
+    margin-block-start: 6em;
 }
 
 .meme-editor .controls {
-    /* width: 40%; */
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
-    /* margin-inline: auto; */
     margin-block-start: 1.3em;
     border-radius: 0.5em;
+}
+
+.meme-editor .controls>section:nth-of-type(1) {
+    padding-block-end: 5px;
 }
 
 input#text {
@@ -72,7 +61,7 @@ input#text {
     width: 12rem;
 
     margin: 0;
-    margin-block-end: 1em;
+    margin-block: 5px;
     padding: 5px 10px;
 
     color: rgb(14, 14, 16);
@@ -110,7 +99,7 @@ input#text:focus {
     min-width: 12rem;
 
     padding: 5px 10px;
-    margin-block: 1em;
+    margin-block: 5px;
 
     font-size: 14px;
     line-height: 1.5;
@@ -125,6 +114,7 @@ input#text:focus {
     width: 3.8em;
     height: 4em;
     padding: 0;
-    margin: 0;
+    /* margin: 0; */
+    margin-block-start: 5px;
     border: none;
 }

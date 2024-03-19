@@ -34,11 +34,17 @@
 
     }
 
+    .canvas-container {
+        justify-content: start;
+    }
+
     .canvas-container canvas {
         width: 200px;
     }
 
     .meme-editor .controls {
+        justify-content: start;
+
         margin: 0;
         padding: 0;
         margin-block-start: 3em;
