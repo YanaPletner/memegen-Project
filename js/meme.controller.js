@@ -117,7 +117,7 @@ function onTxtLineClick(ev) {
     const lines = getTxtLines()
 
     lines.forEach((line, idx) => {
-        const { txt, size, width, pos } = line
+        const { size, width, pos } = line
         const { x, y } = pos
 
         const distanceX = Math.abs(x - clickedX)
@@ -126,8 +126,15 @@ function onTxtLineClick(ev) {
         if (distanceY <= size && distanceX <= width) {
             setSelectedTxtLineIdx(idx)
             renderTxtLineInInput()
-
             return
         }
     })
+}
+
+// 
+
+function onAlign(action) {
+    const idx = getSelectedTxtLineIdx()
+    alignTxtLine(idx, action)
+    renderMeme()
 }

@@ -134,7 +134,26 @@ function setSelectedTxtLineIdx(idx) {
     gMeme.selectedLineIdx = idx
 }
 
+
 function _setTxtLineSize(size, idx) {
     const selectedLine = gMeme.lines[idx]
     selectedLine.size = size
+}
+
+function alignTxtLine(idx, action) {
+    const line = gMeme.lines[idx]
+
+    switch (action) {
+        case 'left':
+            line.pos.x = 0
+            break;
+        case 'center':
+            line.pos.x = gElCanvas.width / 2
+            break;
+        case 'right':
+            line.pos.x = gElCanvas.width - line.width / 2 - 20
+            break;
+        default:
+            break;
+    }
 }

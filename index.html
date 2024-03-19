@@ -52,6 +52,21 @@
                 <button onclick="onSwitchTxtLine()"><i class="fa-solid fa-arrow-down-up-across-line"></i></button>
                 <!-- <button onclick="onSwitchTxtLine()"><i class="fa-solid fa-shuffle"></i></button> -->
                 <br>
+                <label data-trans="font" for="fontFamily">Font</label>
+                <select onchange="onChangeFont('family',this)" name="fontFamilies" id="fontFamily">
+                    <option value="impact">Impact</option>
+                    <option value="arial">Arial</option>
+                    <option value="tahoma">Tahoma</option>
+                </select>
+                <br>
+                <section class="text-align-controls widget-center">
+                    <button title="Align left" onclick="onAlign('left')" class="btn"><i
+                            class="fa-solid fa-align-left"></i></button>
+                    <button title="Align center" onclick="onAlign('center')" class="btn"><i
+                            class="fa-solid fa-align-center"></i></button>
+                    <button title="Align right" onclick="onAlign('right')" class="btn"><i
+                            class="fa-solid fa-align-right"></i></button>
+                </section>
                 <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
                     onchange="onColorPick(this.value)">
                 <a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a>
