@@ -150,29 +150,6 @@ function _setTxtLineSize(size, idx) {
     selectedLine.size = size
 }
 
-// function alignTxtLine(idx, action) {
-//     const line = gMeme.lines[idx]
-
-//     switch (action) {
-//         case 'left':
-//             line.pos.x = gElCanvas.width
-//             break
-//         case 'center':
-//             line.pos.x = gElCanvas.width / 2
-//             break
-//         case 'right':
-//             line.pos.x = gElCanvas.width - line.width / 2 - 20
-//             break
-//         default:
-//             break
-//     }
-// }
-
-// function setTtxLineFont(action, fontFamily) {
-//     const line = gMeme.lines[gMeme.selectedLineIdx]
-//     switch (action) {
-//         case 'family':
-//             line.fontFamily = fontFamily
-//             break;
-//     }
-// }
+function deleteTxt(idx) {
+    gMeme.lines.splice(idx, 1)
+}

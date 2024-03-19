@@ -163,3 +163,9 @@ function onMoveTextLine(direction) {
     }
     renderMeme()
 }
+
+function onDeleteTxt() {
+    const idx = getSelectedTxtLineIdx()
+    deleteTxt(idx)
+    renderMeme()
+}
