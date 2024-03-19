@@ -38,6 +38,7 @@
     display: flex;
     align-items: center;
     max-width: 480px;
+    margin-inline: auto;
 }
 
 .canvas-container canvas {
