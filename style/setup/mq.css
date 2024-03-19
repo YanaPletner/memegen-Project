@@ -1,8 +1,4 @@
-@media(max-width:750px) {
-    /* .logo {
-        font-size: 50%;
-    } */
-
+@media(max-width:920px) {
     .logo img {
         margin-inline: 10px;
         width: 90%;

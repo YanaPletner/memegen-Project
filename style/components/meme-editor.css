@@ -4,7 +4,8 @@
 
     max-width: calc(100vw);
 
-    inset: 0;
+    top: 500px;
+    /* inset: 0; */
     padding-block: 10em;
 
     background-color: whitesmoke;
