@@ -1,15 +1,17 @@
 "use strict"
 
+let gElCurrMemeImg
+
 function renderMeme() {
     const meme = getMeme()
     const { selectedImgId } = meme
 
     const elImg = new Image()
-    elImg.src = `meme-imgs/meme-imgs (square)/${selectedImgId}.jpg`
+    elImg.src = `meme-imgs/${selectedImgId}.jpg`
 
     elImg.onload = () => {
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-
+        gElCurrMemeImg = elImg
+        gCtx.drawImage(gElCurrMemeImg, 0, 0, gElCanvas.width, gElCanvas.height)
         renderTxtLines()
     }
 }
@@ -101,8 +103,13 @@ function onDownloadCanvas(elLink) {
 }
 
 function onTxtLineClick(ev) {
-    const clickedX = ev.offsetX
-    const clickedY = ev.offsetY
+    ev.preventDefault()
+
+    // console.log(getEvPos(ev))
+    const { clickedX, clickedY } = getEvPos(ev)
+
+    // const clickedX = ev.offsetX
+    // const clickedY = ev.offsetY
 
     const lines = getTxtLines()
 
@@ -174,4 +181,16 @@ function onDeleteTxt() {
     const idx = getSelectedTxtLineIdx()
     deleteTxt(idx)
     renderMeme()
+}
+
+// function resizeCanvas(img) {
+//     console.log(img.width)
+//     // gElCanvas.width = width
+//     // gElCanvas.height = height
+//     // renderMeme()
+// }
+
+
+function resizeCanvas() {
+    console.log(gElCurrMemeImg)
 }

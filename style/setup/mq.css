@@ -34,9 +34,10 @@
         justify-content: start;
     }
 
+    /* 
     .canvas-container canvas {
         width: 200px;
-    }
+    } */
 
     .meme-editor .controls {
         justify-content: start;

@@ -4,7 +4,9 @@
 
     max-width: calc(100vw);
 
-    top: 500px;
+    top: 230px;
+    left: 0;
+    right: 0;
     /* inset: 0; */
     padding-block: 10em;
 

@@ -5,19 +5,19 @@ var gMeme = {
     selectedLineIdx: 1,
     lines: [
         {
-            txt: 'Sometimes I eat Falafel',
+            txt: 'ADD TEXT',
             size: 30,
             color: 'white',
             pos: { x: 200, y: 200 },
             isDrag: false,
         },
-        {
-            txt: 'I am a baby',
-            size: 30,
-            color: 'white',
-            pos: { x: 100, y: 315 },
-            isDrag: false,
-        }
+        // {
+        //     txt: 'I am a baby',
+        //     size: 30,
+        //     color: 'white',
+        //     pos: { x: 100, y: 315 },
+        //     isDrag: false,
+        // }
     ]
 }
 
