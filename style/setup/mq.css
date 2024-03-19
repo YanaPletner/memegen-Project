@@ -1,0 +1,33 @@
+@media(max-width:390px) {
+    .logo {
+        font-size: 50%;
+    }
+
+    .main-nav-list li a {
+        height: 2rem;
+        width: 3rem;
+        font-size: 60%;
+    }
+
+    .search .searchButton {
+        height: 2em;
+    }
+
+    .gallery-container>img {
+        width: 40%;
+    }
+
+    .meme-editor {
+        flex-direction: column;
+    }
+
+    .canvas-container canvas {
+        width: 300px;
+    }
+
+    .meme-editor .controls {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+}

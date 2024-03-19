@@ -21,8 +21,8 @@
 </head>
 
 <body onload="onInit()">
-    <header class="main-header main-header-layout full">
-        <div class="logo">meme generator</div>
+    <header class="main-header main-header-layout">
+        <div class="logo"><a href="#">meme generator</a></div>
         <nav class="main-nav">
             <ul class="main-nav-list clean-list flex">
                 <li class="flex"><a class="flex justify-content-center align-items-center" href="#">gallery</a></li>
@@ -47,46 +47,67 @@
         <!-- ***************************** -->
         <!-- Change the section later to a dialog -->
         <section class="meme-editor flex">
+
             <button onclick="" class="btn-close-editor">✕</button>
+
             <section class="canvas-container">
                 <canvas width="400" height="400"></canvas>
             </section>
+
             <aside class="controls">
                 <!-- ?form? -->
                 <input type="text" id="text" name="text" value="ADD TEXT" oninput="onTxtLineInput(this.value)">
-                <br>
-                <button onclick="onMoveTextLine('up')">↑</button>
-                <button onclick="onMoveTextLine('down')">↓</button>
-                <button onclick="onMoveTextLine('left')">←</button>
-                <button onclick="onMoveTextLine('right')">→</button>
-                <br>
-                <button onclick="onIncreaseTxtLineFontSize()">+A</button>
-                <button onclick="onDecreaseTxtLineFontSize()">-A</button>
 
-                <button onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
-                <button onclick="onSwitchTxtLine()"><i class="fa-solid fa-arrow-down-up-across-line"></i></button>
                 <br>
-                <label data-trans="font" for="fontFamily">Font</label>
-                <select onchange="onChangeFont(this.value)" name="fontFamilies" id="fontFamily">
-                    <option value="impact">Impact</option>
-                    <option value="arial">Arial</option>
-                    <option value="Courier New">Courier New</option>
-                </select>
+                <section>
+                    <button onclick="onMoveTextLine('up')">↑</button>
+                    <button onclick="onMoveTextLine('down')">↓</button>
+                    <button onclick="onMoveTextLine('left')">←</button>
+                    <button onclick="onMoveTextLine('right')">→</button>
+                </section>
                 <br>
-                <section class="text-align-controls widget-center">
+
+                <section>
+                    <button onclick="onIncreaseTxtLineFontSize()">+A</button>
+                    <button onclick="onDecreaseTxtLineFontSize()">-A</button>
+
+                    <button onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
+                    <button onclick="onSwitchTxtLine()"><i class="fa-solid fa-arrow-down-up-across-line"></i></button>
+                </section>
+                <br>
+
+                <section>
+                    <label data-trans="font" for="fonts"></label>
+                    <select onchange="onChangeFont(this.value)" name="fonts" id="fonts">
+                        <option value="">Select Font</option>
+                        <option value="impact">Impact</option>
+                        <option value="arial">Arial</option>
+                        <option value="Courier New">Courier New</option>
+                    </select>
+                </section>
+                <br>
+
+                <section class="text-align-controls">
                     <button title="Align left" onclick="onAlign('left')" class="btn"><i
                             class="fa-solid fa-align-left"></i></button>
+
                     <button title="Align center" onclick="onAlign('center')" class="btn"><i
                             class="fa-solid fa-align-center"></i></button>
+
                     <button title="Align right" onclick="onAlign('right')" class="btn"><i
                             class="fa-solid fa-align-right"></i></button>
+
                     <button onclick="onDeleteTxt()"><i class="fa-regular fa-trash-can"></i></button>
                 </section>
-                <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
-                    onchange="onColorPick(this.value)">
-                <a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a>
-
+                <section>
+                    <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
+                        onchange="onColorPick(this.value)">
+                </section>
+                <section>
+                    <div><a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a></div>
+                </section>
             </aside>
+
         </section>
         <!-- *************************** -->
     </main>

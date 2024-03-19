@@ -3,15 +3,17 @@
 }
 
 .gallery-container {
-    /* min-height: 100vh; */
+    /* height: 100vh; */
     min-height: 20vh;
     /* change that later to 100vh */
+    width: 90%;
 
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     place-items: center;
     place-content: baseline;
     grid-auto-flow: dense;
     padding: 2em;
+    margin-inline: auto;
 }
 
 .gallery-container>img {

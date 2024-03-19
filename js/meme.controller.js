@@ -17,7 +17,6 @@ function renderMeme() {
 function renderTxtLines() {
     const lines = getTxtLines()
 
-
     lines.forEach((line, idx) => {
         const { txt, size, color, pos } = line
         const { x, y } = pos
@@ -86,7 +85,6 @@ function onAddLine() {
     getSelectedTxtLineIdx()
     renderTxtLineInInput()
     renderMeme()
-
 }
 
 function onSwitchTxtLine() {
@@ -172,6 +170,7 @@ function onMoveTextLine(direction) {
 }
 
 function onDeleteTxt() {
+    document.getElementById('text').value = 'ADD TEXT'
     const idx = getSelectedTxtLineIdx()
     deleteTxt(idx)
     renderMeme()

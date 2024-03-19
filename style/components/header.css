@@ -2,12 +2,24 @@
     background-color: var(--header-bgc);
     border: 1px solid var(--header-border);
     border-radius: 40px;
+    width: 100%;
+
     z-index: 2;
 }
 
 .logo {
     margin-inline-start: 1em;
+    font-family: mexcellent;
+}
+
+.logo a {
+    text-decoration: none;
+    color: black;
     font-size: 2em;
+}
+
+.main-nav {
+    place-self: end;
 }
 
 .main-nav-list {
@@ -21,6 +33,10 @@
 
     color: black;
     font-size: 1.5em;
+}
+
+.main-nav-list li:last-of-type a {
+    border-radius: 0 40px 40px 0;
 }
 
 .main-nav-list li:hover a {
