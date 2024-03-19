@@ -22,12 +22,12 @@
     }
 
     .canvas-container canvas {
-        width: 300px;
+        width: 200px;
     }
 
     .meme-editor .controls {
         margin: 0;
         padding: 0;
-        width: 100%;
+        margin-block-start: 3em;
     }
 }
