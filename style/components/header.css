@@ -9,22 +9,23 @@
 /* .logo {
     margin-inline-start: 1em;
     font-family: mexcellent;
+    font-size: 1.7em;
 } */
 
-.logo a {
+/* .logo a {
     text-decoration: none;
     color: black;
-    font-size: 2em;
-}
+} */
 
 .logo img {
     margin-inline-start: 1em;
-    margin-block-start: 10px;
+    margin-block-start: 5px;
     width: 50%;
+    min-width: 180px;
 }
 
 .main-nav {
-    place-self: end;
+    place-self: center end;
 }
 
 .main-nav-list {
@@ -33,11 +34,9 @@
 
 .main-nav-list li a {
     text-decoration: none;
-    height: 5em;
     width: 6em;
 
     color: black;
-    font-size: 1.5em;
     font-family: mexcellent;
 }
 
