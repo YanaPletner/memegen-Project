@@ -21,6 +21,8 @@
     position: absolute;
     top: 0;
     left: 0;
+
+    /* background-color: transparent; */
     /* border-radius: 0rem 0.5rem 2rem 0.5rem; DONT EARASE */
 }
 
@@ -41,12 +43,51 @@
 }
 
 .meme-editor .controls {
-    flex-direction: row;
     flex-wrap: wrap;
-    background-color: var(--clr1);
     border-radius: 0.5em;
-    box-shadow: 0px 30px 30px -20px var(--shadow);
     padding: 1.33em;
     max-width: 480px;
     margin: 0 auto 2.5em;
+}
+
+input#text {
+    height: 36px;
+    width: 100%;
+    min-width: 12rem;
+
+    padding: 5px 10px;
+    margin-block-end: 1em;
+
+    color: rgb(14, 14, 16);
+    font-size: 14px;
+    line-height: 1.5;
+
+    border: 2px solid #dee1e2;
+    border-radius: 6px;
+
+    background: #dee1e2;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+}
+
+input#text:hover {
+    border-color: #ccc;
+}
+
+input#text:focus {
+    background: #fff;
+    outline: none;
+}
+
+.meme-editor .controls button {
+    display: inline-block;
+    height: 3em;
+    width: 3em;
+    font-size: 15px;
+}
+
+.meme-editor .controls input[type='color'] {
+    width: 3.8em;
+    height: 4em;
+    padding: 0;
+    border: none;
 }

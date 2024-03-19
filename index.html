@@ -36,22 +36,25 @@
 
         <!-- ***************************** -->
         <!-- Change the section later to a dialog -->
-        <section class="meme-editor">
-            <button onclick="" class="btn-close-editor btn-editor-ui">✕</button>
+        <section class="meme-editor flex">
+            <button onclick="" class="btn-close-editor">✕</button>
             <section class="canvas-container">
                 <canvas width="400" height="400"></canvas>
             </section>
             <aside class="controls">
                 <!-- ?form? -->
                 <input type="text" id="text" name="text" value="ADD TEXT" oninput="onTxtLineInput(this.value)">
-                <a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a>
-                <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
-                    onchange="onColorPick(this.value)">
+                <br>
                 <button onclick="onIncreaseTxtLineFontSize()">+A</button>
                 <button onclick="onDecreaseTxtLineFontSize()">-A</button>
 
                 <button onclick="onAddLine()">+</button>
                 <button onclick="onSwitchTxtLine()"><i class="fa-solid fa-shuffle"></i></button>
+                <br>
+                <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
+                    onchange="onColorPick(this.value)">
+                <a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a>
+
             </aside>
         </section>
         <!-- *************************** -->
