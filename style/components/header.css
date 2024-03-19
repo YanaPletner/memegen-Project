@@ -3,19 +3,24 @@
     border: 1px solid var(--header-border);
     border-radius: 40px;
     width: 100%;
-
     z-index: 2;
 }
 
-.logo {
+/* .logo {
     margin-inline-start: 1em;
     font-family: mexcellent;
-}
+} */
 
 .logo a {
     text-decoration: none;
     color: black;
     font-size: 2em;
+}
+
+.logo img {
+    margin-inline-start: 1em;
+    margin-block-start: 10px;
+    width: 50%;
 }
 
 .main-nav {
@@ -40,6 +45,6 @@
     border-radius: 0 40px 40px 0;
 }
 
-.main-nav-list li:hover a {
+/* .main-nav-list li:hover a {
     background-color: var(--header-list-hover);
-}
+} */
