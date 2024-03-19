@@ -1,12 +1,12 @@
-@import "style/setup/vars.css";
-@import "style/setup/font-face.css";
+@import "./setup/vars.css";
+@import "./setup/font-face.css";
 
-@import "style/basic/helpers.css";
-@import "style/basic/layout.css";
+@import "./basic/helpers.css";
+@import "./basic/layout.css";
 
-@import "style/components/header.css";
-@import "style/components/serach-bar.css";
-@import "style/components/gallery.css";
-@import "style/components/meme-editor.css";
+@import "./components/header.css";
+@import "./components/serach-bar.css";
+@import "./components/gallery.css";
+@import "./components/meme-editor.css";
 
-@import "style/setup/mq.css";
+@import "./setup/mq.css";
