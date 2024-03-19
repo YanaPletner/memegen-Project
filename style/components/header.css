@@ -33,8 +33,8 @@
 
 .main-nav-list li a {
     text-decoration: none;
-    height: 5rem;
-    width: 6rem;
+    height: 5em;
+    width: 6em;
 
     color: black;
     font-size: 1.5em;
@@ -45,6 +45,10 @@
     border-radius: 0 40px 40px 0;
 }
 
-/* .main-nav-list li:hover a {
+.main-nav-list li {
+    height: 5ren;
+}
+
+.main-nav-list li:hover a {
     background-color: var(--header-list-hover);
-} */
+}
