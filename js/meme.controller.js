@@ -65,18 +65,11 @@ function onTxtLineInput(text) {
 
 function onIncreaseTxtLineFontSize() {
     increaseTxtLineFontSize()
-
-    // const idx = getSelectedTxtLineIdx()
-    // renderRectAroundText(idx)
     renderMeme()
 }
 
 function onDecreaseTxtLineFontSize() {
     decreaseTxtLineFontSize()
-
-    const idx = getSelectedTxtLineIdx()
-    // renderRectAroundText(idx)
-
     renderMeme()
 }
 
@@ -90,7 +83,6 @@ function onAddLine() {
     newText = 'ADD TEXT'
 
     addTxtLine(newText)
-
     getSelectedTxtLineIdx()
     renderTxtLineInInput()
     renderMeme()
@@ -132,7 +124,6 @@ function onTxtLineClick(ev) {
 }
 
 function onChangeFont(font) {
-    console.log(font)
     setTtxLineFont(font)
     renderMeme()
 }
@@ -155,6 +146,20 @@ function onAlign(action) {
         default:
             break
     }
+    renderMeme()
+}
 
+function onMoveTextLine(direction) {
+    const step = 10
+
+    const idx = getSelectedTxtLineIdx()
+    const lines = getTxtLines()
+    const line = lines[idx]
+
+    if (direction === 'up') {
+        line.pos.y -= step
+    } else if (direction === 'down') {
+        line.pos.y += step
+    }
     renderMeme()
 }
