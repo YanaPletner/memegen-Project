@@ -15,20 +15,24 @@
         <div class="logo">meme generator</div>
         <nav class="main-nav">
             <ul class="main-nav-list clean-list flex">
-                <li class="flex"><a class="flex" href="#">gallery</a></li>
-                <li class="flex"><a class="flex" href="#">saved</a></li>
-                <li class="flex"><a class="flex" href="#">editor</a></li>
+                <li class="flex"><a class="flex justify-content-center align-items-center" href="#">gallery</a></li>
+                <li class="flex"><a class="flex justify-content-center align-items-center" href="#">saved</a></li>
+                <li class="flex"><a class="flex justify-content-center align-items-center" href="#">editor</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="search-bar">
-        <label data-trans="search" for="search-meme">Search</label>
-        <input oninput="" type="search" name="search-meme" id="search-meme">
+    <section class="search flex">
+        <input type="text" id="searchTerm" placeholder="Search...">
+        <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+        </button>
     </section>
 
+    <nav class="tags-nav"></nav>
+
     <main class="main-content">
-        <section class="gallery-container"></section>
+        <section class="gallery-container grid"></section>
 
         <!-- ***************************** -->
         <!-- Change the section later to a dialog -->

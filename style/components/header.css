@@ -1,15 +1,12 @@
 .main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    background-color: var(--header-bgc);
+    border: 1px solid var(--header-border);
 
-    background-color: rgba(112, 214, 132, 0.5);
-    border: 1px solid rgb(96, 231, 125)
+    z-index: 2;
 }
 
 .logo {
-    margin-inline-start: 2em;
+    margin-inline-start: 1em;
     font-size: 2em;
 }
 
@@ -27,6 +24,6 @@
 }
 
 .main-nav-list li:hover a {
-    color: rgb(236, 237, 236);
-    background-color: rgba(75, 138, 88, 0.5);
+    color: var(--list-hover);
+    background-color: var(--header-main-nav-list);
 }

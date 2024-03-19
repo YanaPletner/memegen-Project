@@ -2,10 +2,27 @@
     box-sizing: border-box;
 }
 
-.search-bar {
-    margin-block-start: 10em;
+.gallery-container {
+    /* min-height: 100vh; */
+    min-height: 20vh;
+    /* change that later to 100vh */
+
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    place-items: center;
+    place-content: baseline;
+    grid-auto-flow: dense;
+    padding: 2em;
 }
 
-.gallery-container {
-    margin-block-start: 10em;
+.gallery-container>img {
+    width: 80%;
+    cursor: pointer;
+    border-radius: 0.5em;
+    box-shadow: 0px 10px 20px -10px var(--shadow);
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.gallery-container>img:hover {
+    box-shadow: 0px 30px 30px -20px var(--shadow);
+    transform: scale(1.05);
 }

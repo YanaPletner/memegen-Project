@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+.search {
+    position: relative;
+
+    margin-block-start: 2em;
+    width: 100%;
+}
+
+#searchTerm {
+    width: 100%;
+    padding: 5px;
+
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+    border: 3px solid rgb(112, 214, 132);
+
+    font-size: 1.2em;
+    outline: none;
+}
+
+.searchButton {
+    width: 4em;
+    height: 3em;
+    border: 1px solid rgb(112, 214, 132);
+    background: rgb(112, 214, 132);
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.wrap {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
