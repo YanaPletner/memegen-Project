@@ -143,8 +143,6 @@ function onAlign(action) {
         case 'right':
             line.pos.x = gElCanvas.width - line.width / 2 - 10
             break
-        default:
-            break
     }
     renderMeme()
 }
@@ -156,10 +154,19 @@ function onMoveTextLine(direction) {
     const lines = getTxtLines()
     const line = lines[idx]
 
-    if (direction === 'up') {
-        line.pos.y -= step
-    } else if (direction === 'down') {
-        line.pos.y += step
+    switch (direction) {
+        case 'up':
+            line.pos.y -= step
+            break
+        case 'down':
+            line.pos.y += step
+            break
+        case 'left':
+            line.pos.x -= step
+            break
+        case 'right':
+            line.pos.x += step
+            break
     }
     renderMeme()
 }

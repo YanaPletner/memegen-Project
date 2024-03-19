@@ -6,14 +6,17 @@
     position: relative;
 
     margin-block-start: 2em;
-    width: 100%;
+    margin-inline: auto;
+    width: 90%;
+    max-width: 100em;
 }
 
 #searchTerm {
     width: 100%;
     padding: 5px;
 
-    border-radius: 5px 0 0 5px;
+    border-radius: 30px 0 0 30px;
+
     border-right: none;
     border: 3px solid rgb(112, 214, 132);
 
@@ -28,7 +31,7 @@
     background: rgb(112, 214, 132);
     text-align: center;
     color: #fff;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 30px 30px 0;
     cursor: pointer;
     font-size: 20px;
 }
