@@ -1,14 +1,15 @@
 "use strict"
 
+
 var gMeme = {
-    selectedImgId: 5,  //1-43
-    selectedLineIdx: 1,
+    selectedImgId: 1,  //1-43
+    selectedLineIdx: 0,
     lines: [
         {
             txt: 'ADD TEXT',
             size: 30,
             color: 'white',
-            pos: { x: 200, y: 200 },
+            pos: { x: 150, y: 100 },
             isDrag: false,
         },
         // {

@@ -19,7 +19,6 @@ function onInit() {
     renderGallery()
     renderMeme()
 
-    window.addEventListener('resize', () => resizeCanvas())
 }
 
 
