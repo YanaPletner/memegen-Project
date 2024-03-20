@@ -40,6 +40,8 @@ function renderTxtLines() {
 
         const textWidth = gCtx.measureText(txt).width
         setTxtLineWidth(textWidth, idx)
+
+        // const clickedSize = size+10
         // renderRectAroundText(idx)
         // renderMeme()
     })
@@ -135,6 +137,8 @@ function onTxtLineClick(ev) {
 
         if (clickedX >= topLeftX && clickedX <= topRightX && clickedX >= bottomLeftX && clickedX <= bottomRightX &&
             clickedY >= topLeftY && clickedY <= topRightY && clickedY >= bottomLeftY && clickedY <= bottomRightY) {
+
+
             setSelectedTxtLineIdx(idx)
             renderTxtLineInInput()
             return

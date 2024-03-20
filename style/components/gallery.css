@@ -21,6 +21,7 @@ body {
 
 .gallery-container>img {
     width: 80%;
+    margin-block: 2em;
     cursor: pointer;
     border-radius: 0.5em;
     box-shadow: 0px 10px 20px -10px var(--shadow);

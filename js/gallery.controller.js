@@ -1,12 +1,16 @@
 "use strict"
 
 let gElGallery
-let gCurrImgId
+let gMaxMemes = 43
 
 function renderGallery() {
     gElGallery = document.querySelector('.gallery-container')
-    gElGallery.innerHTML = "<img src='meme-imgs/1.jpg' class='id-1.jpg' onclick='onImgSelect(this)'>"
-    gElGallery.innerHTML += "<img src='meme-imgs/2.jpg' class='id-2.jpg' onclick='onImgSelect(this)'>"
+    gElGallery.innerHTML = ""
+    for (let i = 1; i < gMaxMemes; i++) {
+        gElGallery.innerHTML += `<img src='meme-imgs/${i}.jpg' onclick='onImgSelect(this)'></img>`
+    }
+    // gElGallery.innerHTML = "<img src='meme-imgs/1.jpg' class='id-1.jpg' onclick='onImgSelect(this)'>"
+    // gElGallery.innerHTML += "<img src='meme-imgs/2.jpg' class='id-2.jpg' onclick='onImgSelect(this)'>"
 }
 
 function onImgSelect(elImg) {
