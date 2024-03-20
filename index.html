@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="style/components/meme-editor.css">
     <link rel="stylesheet" href="style/setup/mq.css">
     <!-- <link rel="stylesheet" href="./style/main.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
 
     <script src="https://kit.fontawesome.com/05d66dc80e.js" crossorigin="anonymous"></script>
 </head>
@@ -84,7 +85,8 @@
                     <label data-trans="font" for="fonts"></label>
                     <select onchange="onChangeFont(this.value)" name="fonts" id="fonts">
                         <option value="">Select Font</option>
-                        <option value="impact">Impact</option>
+                        <!-- <option value="impact">Impact</option> -->
+                        <option value="Anton">Anton</option>
                         <option value="arial">Arial</option>
                         <option value="Courier New">Courier New</option>
                     </select>
@@ -109,6 +111,11 @@
                 </section>
                 <section>
                     <div><a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a></div>
+
+                </section>
+
+                <section>
+                    <button onclick="onSaveMeme()"></button>
                 </section>
             </aside>
 

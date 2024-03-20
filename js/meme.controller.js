@@ -20,12 +20,19 @@ function renderTxtLines() {
         const { txt, size, color, pos } = line
         const { x, y } = pos
 
+
+
         gCtx.fillStyle = color
 
         gCtx.font = `${size}px ${getTxtLintFont(idx)}`
         gCtx.textAlign = 'center'
 
+        gCtx.strokeStyle = 'black'
+        gCtx.lineWidth = 8
+        gCtx.strokeText(txt, x, y)
+
         gCtx.fillText(txt, x, y)
+
 
         const textWidth = gCtx.measureText(txt).width
 

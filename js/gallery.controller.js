@@ -1,7 +1,6 @@
 "use strict"
 
 let gElGallery
-let gElCurrImg
 
 function renderGallery() {
     gElGallery = document.querySelector('.gallery-container')
@@ -22,11 +21,14 @@ function onRandomImg() {
     const elImg = new Image()
     elImg.src = `meme-imgs/${random}.jpg`
 
+    const currImgId = random
+
     elImg.onload = () => {
         gElCanvas.width = elImg.width
         gElCanvas.height = elImg.height
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
+        setSelectedImgId(currImgId)
         renderTxtLines()
     }
 }

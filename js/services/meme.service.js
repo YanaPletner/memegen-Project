@@ -1,5 +1,5 @@
 "use strict"
-
+const MEME_KEY = 'memeDB'
 
 var gMeme = {
     selectedImgId: 1,  //1-43
@@ -8,6 +8,7 @@ var gMeme = {
         {
             txt: 'ADD TEXT',
             size: 30,
+            font: 'Anton',
             color: 'white',
             pos: { x: 150, y: 100 },
             isDrag: false,
@@ -64,10 +65,10 @@ function addTxtLine(text) {
     gMeme.lines.push({
         txt: text,
         size: 20,
+        font: 'anton',
         color: 'white',
         pos: { x: 315, y: 30 },
         isDrag: false,
-        isSelected: false,
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
@@ -116,21 +117,6 @@ function isTxtLineClicked(clickedPos) {
     return isClicked;
 }
 
-
-
-// function setTxtLineDrag(isDrag) {
-//     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-//     selectedLine.isDrag = isDrag
-// }
-
-// function moveTxtLine(dx, dy) {
-//     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-
-//     selectedLine.pos.x += dx
-//     selectedLine.pos.y += dy
-// }
-
-
 function setSelectedTxtLineIdx(idx) {
     gMeme.selectedLineIdx = idx
 }
@@ -146,11 +132,20 @@ function getTxtLintFont(idx) {
     return selectedLine.font
 }
 
-function _setTxtLineSize(size, idx) {
-    const selectedLine = gMeme.lines[idx]
-    selectedLine.size = size
-}
 
 function deleteTxt(idx) {
     gMeme.lines.splice(idx, 1)
+}
+
+function saveMeme(val) {
+    saveToStorage(MEME_KEY, val)
+}
+
+function setSelectedImgId(imgId) {
+    gMeme.selectedImgId = imgId
+}
+
+function _setTxtLineSize(size, idx) {
+    const selectedLine = gMeme.lines[idx]
+    selectedLine.size = size
 }
