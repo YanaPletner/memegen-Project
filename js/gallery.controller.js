@@ -25,8 +25,8 @@ function onRandomImg() {
     const currImgId = random
 
     elImg.onload = () => {
-        gElCanvas.width = elImg.width
-        gElCanvas.height = elImg.height
+        gElCanvas.width = elImg.width * 3 / 5
+        gElCanvas.height = elImg.height * 3 / 5
 
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         setSelectedImgId(currImgId)
