@@ -31,12 +31,3 @@ body {
     box-shadow: 0px 30px 30px -20px var(--shadow);
     transform: scale(1.05);
 }
-
-footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    height: 2.5rem;
-    background-color: var(--header-bgc);
-}

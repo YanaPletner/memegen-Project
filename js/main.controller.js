@@ -55,3 +55,15 @@ function addListeners() {
     addTouchListeners()
     // window.addEventListener('resize', (event) => resizeCanvas)
 }
+
+function onToggleMenu() {
+    document.body.classList.toggle('menu-open')
+
+    const elMenuBtn = document.querySelector('.toggle-menu-btn span')
+    if (document.body.classList.contains('menu-open')) {
+        elMenuBtn.innerHTML = '<span class="fa-solid fa-xmark"></span>'
+    }
+    else {
+        elMenuBtn.innerText = '☰'
+    }
+}

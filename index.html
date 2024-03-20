@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="style/components/serach-bar.css">
     <link rel="stylesheet" href="style/components/gallery.css">
     <link rel="stylesheet" href="style/components/meme-editor.css">
+    <link rel="stylesheet" href="style/components/footer.css">
     <link rel="stylesheet" href="style/setup/mq.css">
     <!-- <link rel="stylesheet" href="./style/main.css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
@@ -30,7 +31,8 @@
             <ul class="main-nav-list clean-list flex">
                 <li class="flex"><a href="#" onclick="onRandomImg()"
                         class="flexible flex justify-content-center align-items-center">i'm flexible</a></li>
-                <li class="flex"><a class="flex justify-content-center align-items-center" href="#">gallery</a></li>
+                <li class="flex"><a class="flex justify-content-center align-items-center" href="#"
+                        onclick="onCloseMemeEditor()">gallery</a></li>
                 <li class="flex"><a class="flex justify-content-center align-items-center" href="#">saved</a></li>
                 <li class="flex"><a class="flex justify-content-center align-items-center" href="#"
                         onclick="onOpenMemeEditor()">editor</a></li>
@@ -54,15 +56,12 @@
 
         </section>
 
-        <!-- ***************************** -->
-        <!-- Change the section later to a dialog -->
         <section class="meme-editor hidden">
             <form method="dialog" class=" flex justify-content-center align-items-center">
-                <!-- <form class="flex justify-content-center"> -->
                 <button onclick="onCloseMemeEditor()" class="btn-close-editor">✕</button>
 
                 <section class="canvas-container">
-                    <canvas width="300" height="300"></canvas>
+                    <canvas width="100" height="100"></canvas>
                 </section>
 
                 <aside class="controls flex">
@@ -111,10 +110,12 @@
 
                         <button onclick="onDeleteTxt()"><i class="fa-regular fa-trash-can"></i></button>
                     </section>
+
                     <section>
                         <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
                             onchange="onColorPick(this.value)">
                     </section>
+
                     <section>
                         <div><a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a></div>
 
@@ -123,10 +124,10 @@
                     <section>
                         <button onclick="onSaveMeme()">save meme</button>
                     </section>
+
                 </aside>
             </form>
         </section>
-        <!-- </div> -->
     </main>
 
     <footer class="flex justify-content-center align-items-center">@Made By Yana Pletner 2024</footer>
