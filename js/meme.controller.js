@@ -17,7 +17,6 @@ function renderMeme() {
 
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         renderTxtLines()
-        renderDot()
     }
 }
 
@@ -45,7 +44,6 @@ function renderTxtLines() {
 
         const textWidth = gCtx.measureText(txt).width
         setTxtLineWidth(textWidth, idx)
-        console.log(textWidth)
         // renderRectAroundText(idx)
         // renderMeme()
     })
@@ -148,26 +146,26 @@ function onTxtLineClick(ev) {
     })
 }
 
-function renderDot() {
-    const lines = getTxtLines()
-    const selectedLineIdx = getSelectedTxtLineIdx()
+// function renderDot() {
+//     const lines = getTxtLines()
+//     const selectedLineIdx = getSelectedTxtLineIdx()
 
-    lines.forEach((line, idx) => {
-        if (!idx === selectedLineIdx) return
-        const { txt, size, color, pos } = line
-        const { x, y } = pos
+//     lines.forEach((line, idx) => {
+//         if (!idx === selectedLineIdx) return
+//         const { txt, size, color, pos } = line
+//         const { x, y } = pos
 
-        gCtx.beginPath()
-        gCtx.arc(x, y, 2, 0, 2 * Math.PI) // draws a circle
+//         gCtx.beginPath()
+//         gCtx.arc(x, y, 2, 0, 2 * Math.PI) // draws a circle
 
-        gCtx.lineWidth = 4
-        gCtx.strokeStyle = 'orangered'
-        gCtx.stroke()
+//         gCtx.lineWidth = 4
+//         gCtx.strokeStyle = 'orangered'
+//         gCtx.stroke()
 
-        gCtx.fillStyle = 'white'
-        gCtx.fill()
-    })
-}
+//         gCtx.fillStyle = 'white'
+//         gCtx.fill()
+//     })
+// }
 
 function onChangeFont(font) {
     setTtxLineFont(font)

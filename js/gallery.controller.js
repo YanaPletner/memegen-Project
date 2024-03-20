@@ -25,16 +25,23 @@ function onRandomImg() {
     const currImgId = random
 
     elImg.onload = () => {
-        gElCanvas.width = elImg.width
-        gElCanvas.height = elImg.height
+        gElCanvas.width = elImg.width / 2
+        gElCanvas.height = elImg.height / 2
 
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        // console.log(elImg.width, elImg.height)
-        // console.log(gElCanvas.width, gElCanvas.height)
-        console.log(gElCanvas.getBoundingClientRect())
-        // gElCanvas.left=0
         setSelectedImgId(currImgId)
         renderTxtLines()
-        renderDot()
     }
+    onOpenMemeEditor()
+}
+
+
+function onOpenMemeEditor() {
+    const elModal = document.querySelector('.meme-editor')
+    elModal.style.display = 'block'
+}
+
+function onCloseMemeEditor() {
+    const elModal = document.querySelector('.meme-editor')
+    elModal.style.display = 'none'
 }

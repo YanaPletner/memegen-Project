@@ -2,20 +2,9 @@
     background-color: var(--header-bgc);
     border: 1px solid var(--header-border);
     border-radius: 50px;
-    width: 100%;
+    width: 97vw;
     /* z-index: 2; */
 }
-
-/* .logo {
-    margin-inline-start: 1em;
-    font-family: mexcellent;
-    font-size: 1.7em;
-} */
-
-/* .logo a {
-    text-decoration: none;
-    color: black;
-} */
 
 .logo img {
     margin-inline-start: 1em;
@@ -32,10 +21,11 @@
     margin: 0;
 }
 
+
 .main-nav-list li a {
     text-decoration: none;
     height: 3.2em;
-    width: 6em;
+    width: 7em;
 
     color: black;
     font-family: mexcellent;
@@ -51,4 +41,21 @@
 
 .main-nav-list li:hover a {
     background-color: var(--header-list-hover);
+}
+
+.toggle-menu-btn {
+    display: none;
+    /* grid-column: 4/5; */
+    place-self: center end;
+
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    margin-inline-end: 2rem;
+
+    border: 0;
+    color: aliceblue;
+    background-color: Transparent;
+
+    cursor: pointer;
 }

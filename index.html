@@ -25,13 +25,19 @@
     <header class="main-header main-header-layout">
         <div class="logo"><a href="#"><img src="logo-img/memegen-logo.png"></a></div>
         <!-- <div class="logo"><a href="#">meme generator</a></div> -->
+
         <nav class="main-nav">
             <ul class="main-nav-list clean-list flex">
+                <li class="flex"><a href="#" onclick="onRandomImg()"
+                        class="flexible flex justify-content-center align-items-center">i'm flexible</a></li>
                 <li class="flex"><a class="flex justify-content-center align-items-center" href="#">gallery</a></li>
                 <li class="flex"><a class="flex justify-content-center align-items-center" href="#">saved</a></li>
-                <li class="flex"><a class="flex justify-content-center align-items-center" href="#">editor</a></li>
+                <li class="flex"><a class="flex justify-content-center align-items-center" href="#"
+                        onclick="onOpenMemeEditor()">editor</a></li>
+
             </ul>
         </nav>
+        <button class="toggle-menu-btn" type="button" onclick="onToggleMenu()"><span>☰</span></button>
     </header>
 
     <section class="search flex">
@@ -44,86 +50,86 @@
     <nav class="tags-nav"></nav>
 
     <main class="main-content">
-        <button onclick="onRandomImg()" class="flexible">I'M FLEXIBLE</button>
         <section class="gallery-container grid">
 
         </section>
 
         <!-- ***************************** -->
         <!-- Change the section later to a dialog -->
-        <section class="meme-editor flex">
+        <section class="meme-editor hidden">
+            <form method="dialog" class=" flex justify-content-center align-items-center">
+                <!-- <form class="flex justify-content-center"> -->
+                <button onclick="onCloseMemeEditor()" class="btn-close-editor">✕</button>
 
-            <button onclick="" class="btn-close-editor">✕</button>
-
-            <section class="canvas-container">
-                <canvas width="400" height="400"></canvas>
-            </section>
-
-            <aside class="controls flex">
-                <!-- ?form? -->
-                <input type="text" id="text" name="text" value="ADD TEXT" oninput="onTxtLineInput(this.value)">
-
-
-                <section>
-                    <button onclick="onMoveTextLine('up')">↑</button>
-                    <button onclick="onMoveTextLine('down')">↓</button>
-                    <button onclick="onMoveTextLine('left')">←</button>
-                    <button onclick="onMoveTextLine('right')">→</button>
+                <section class="canvas-container">
+                    <canvas width="300" height="300"></canvas>
                 </section>
 
+                <aside class="controls flex">
 
-                <section>
-                    <button onclick="onIncreaseTxtLineFontSize()">+A</button>
-                    <button onclick="onDecreaseTxtLineFontSize()">-A</button>
-
-                    <button onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
-                    <button onclick="onSwitchTxtLine()"><i class="fa-solid fa-arrow-down-up-across-line"></i></button>
-                </section>
+                    <input type="text" id="text" name="text" value="ADD TEXT" oninput="onTxtLineInput(this.value)">
 
 
-                <section>
-                    <label data-trans="font" for="fonts"></label>
-                    <select onchange="onChangeFont(this.value)" name="fonts" id="fonts">
-                        <option value="">Select Font</option>
-                        <!-- <option value="impact">Impact</option> -->
-                        <option value="Anton">Anton</option>
-                        <option value="arial">Arial</option>
-                        <option value="Courier New">Courier New</option>
-                    </select>
-                </section>
+                    <section>
+                        <button onclick="onMoveTextLine('up')">↑</button>
+                        <button onclick="onMoveTextLine('down')">↓</button>
+                        <button onclick="onMoveTextLine('left')">←</button>
+                        <button onclick="onMoveTextLine('right')">→</button>
+                    </section>
 
 
-                <section class="text-align-controls">
-                    <button title="Align left" onclick="onAlign('left')" class="btn"><i
-                            class="fa-solid fa-align-left"></i></button>
+                    <section>
+                        <button onclick="onIncreaseTxtLineFontSize()">+A</button>
+                        <button onclick="onDecreaseTxtLineFontSize()">-A</button>
 
-                    <button title="Align center" onclick="onAlign('center')" class="btn"><i
-                            class="fa-solid fa-align-center"></i></button>
+                        <button onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="onSwitchTxtLine()"><i
+                                class="fa-solid fa-arrow-down-up-across-line"></i></button>
+                    </section>
 
-                    <button title="Align right" onclick="onAlign('right')" class="btn"><i
-                            class="fa-solid fa-align-right"></i></button>
 
-                    <button onclick="onDeleteTxt()"><i class="fa-regular fa-trash-can"></i></button>
-                </section>
-                <section>
-                    <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
-                        onchange="onColorPick(this.value)">
-                </section>
-                <section>
-                    <div><a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a></div>
+                    <section>
+                        <label data-trans="font" for="fonts"></label>
+                        <select onchange="onChangeFont(this.value)" name="fonts" id="fonts">
+                            <option value="">Select Font</option>
+                            <option value="Anton">Anton</option>
+                            <option value="arial">Arial</option>
+                            <option value="Courier New">Courier New</option>
+                        </select>
+                    </section>
 
-                </section>
 
-                <section>
-                    <button onclick="onSaveMeme()">save meme</button>
-                </section>
-            </aside>
+                    <section class="text-align-controls">
+                        <button title="Align left" onclick="onAlign('left')" class="btn"><i
+                                class="fa-solid fa-align-left"></i></button>
 
+                        <button title="Align center" onclick="onAlign('center')" class="btn"><i
+                                class="fa-solid fa-align-center"></i></button>
+
+                        <button title="Align right" onclick="onAlign('right')" class="btn"><i
+                                class="fa-solid fa-align-right"></i></button>
+
+                        <button onclick="onDeleteTxt()"><i class="fa-regular fa-trash-can"></i></button>
+                    </section>
+                    <section>
+                        <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
+                            onchange="onColorPick(this.value)">
+                    </section>
+                    <section>
+                        <div><a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a></div>
+
+                    </section>
+
+                    <section>
+                        <button onclick="onSaveMeme()">save meme</button>
+                    </section>
+                </aside>
+            </form>
         </section>
-        <!-- *************************** -->
+        <!-- </div> -->
     </main>
 
-    <footer>@Made By Yana Pletner 2024</footer>
+    <footer class="flex justify-content-center align-items-center">@Made By Yana Pletner 2024</footer>
 
     <!-- Services -->
     <script src="js/services/util.service.js"></script>
