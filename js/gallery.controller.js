@@ -1,6 +1,7 @@
 "use strict"
 
 let gElGallery
+let gCurrImgId
 
 function renderGallery() {
     gElGallery = document.querySelector('.gallery-container')
@@ -26,9 +27,14 @@ function onRandomImg() {
     elImg.onload = () => {
         gElCanvas.width = elImg.width
         gElCanvas.height = elImg.height
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
+        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+        // console.log(elImg.width, elImg.height)
+        // console.log(gElCanvas.width, gElCanvas.height)
+        console.log(gElCanvas.getBoundingClientRect())
+        // gElCanvas.left=0
         setSelectedImgId(currImgId)
         renderTxtLines()
+        renderDot()
     }
 }

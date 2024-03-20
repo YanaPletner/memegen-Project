@@ -13,11 +13,11 @@ function onInit() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
-    // resizeCanvas()
-
     addListeners()
     renderGallery()
     renderMeme()
+
+    // window.addEventListener('resize', (event) => resizeCanvas)
 
 }
 
@@ -53,4 +53,5 @@ function getEvPos(ev) {
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
+    // window.addEventListener('resize', (event) => resizeCanvas)
 }

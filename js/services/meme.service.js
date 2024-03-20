@@ -10,7 +10,7 @@ var gMeme = {
             size: 30,
             font: 'Anton',
             color: 'white',
-            pos: { x: 150, y: 100 },
+            pos: { x: 200, y: 200 },
             isDrag: false,
         },
         // {
@@ -64,10 +64,11 @@ function setTxtLineColor(color) {
 function addTxtLine(text) {
     gMeme.lines.push({
         txt: text,
-        size: 20,
+        size: 30,
         font: 'anton',
         color: 'white',
-        pos: { x: 315, y: 30 },
+        pos: { x: 200, y: 200 },
+        // pos: { x: 315, y: 30 },
         isDrag: false,
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
@@ -78,8 +79,6 @@ function switchTxtLine() {
         gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length;
     }
 }
-
-
 
 function setTxtLinePos(x, y) {
     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
@@ -132,17 +131,16 @@ function getTxtLintFont(idx) {
     return selectedLine.font
 }
 
-
 function deleteTxt(idx) {
     gMeme.lines.splice(idx, 1)
 }
 
-function saveMeme(val) {
-    saveToStorage(MEME_KEY, val)
-}
-
 function setSelectedImgId(imgId) {
     gMeme.selectedImgId = imgId
+}
+
+function saveMeme(val) {
+    saveToStorage(MEME_KEY, val)
 }
 
 function _setTxtLineSize(size, idx) {

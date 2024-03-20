@@ -8,53 +8,64 @@ function renderMeme() {
     elImg.src = `meme-imgs/${selectedImgId}.jpg`
 
     elImg.onload = () => {
+        gElCanvas.width = elImg.width
+        gElCanvas.height = elImg.height
+
+
+        // console.log(elImg.width, elImg.height)
+        // gElCanvas.setBoundingClientRect()
+
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         renderTxtLines()
+        renderDot()
     }
 }
 
 function renderTxtLines() {
     const lines = getTxtLines()
+    const selectedLineIdx = getSelectedTxtLineIdx()
 
     lines.forEach((line, idx) => {
+        if (!idx === selectedLineIdx) return
         const { txt, size, color, pos } = line
         const { x, y } = pos
-
-
-
-        gCtx.fillStyle = color
 
         gCtx.font = `${size}px ${getTxtLintFont(idx)}`
         gCtx.textAlign = 'center'
 
         gCtx.strokeStyle = 'black'
+        gCtx.fillStyle = color
         gCtx.lineWidth = 8
-        gCtx.strokeText(txt, x, y)
 
+        // gCtx.strokeText(txt, gElCanvas.width / 2, gElCanvas.height / 2)
+        // gCtx.fillText(txt, gElCanvas.width / 2, gElCanvas.height / 2)
+
+        gCtx.strokeText(txt, x, y)
         gCtx.fillText(txt, x, y)
 
-
         const textWidth = gCtx.measureText(txt).width
-
         setTxtLineWidth(textWidth, idx)
+        console.log(textWidth)
+        // renderRectAroundText(idx)
+        // renderMeme()
     })
 }
 
-// function renderRectAroundText(idx) {
-//     const lines = getTxtLines()
+function renderRectAroundText(idx) {
+    const lines = getTxtLines()
 
-//     const { width, size, pos } = lines[idx]
-//     const { x, y } = pos
+    const { width, size, pos } = lines[idx]
+    const { x, y } = pos
 
-//     const frameX = x - width / 2 - 10
-//     const frameY = y - size / 2 - 20
-//     const frameWidth = width + 25
-//     const frameHeight = size + 20
-//     gCtx.beginPath()
-//     gCtx.strokeStyle = 'black'
-//     gCtx.lineWidth = 2
-//     gCtx.strokeRect(frameX, frameY, frameWidth, frameHeight)
-// }
+    const frameX = x - width / 2 - 10
+    const frameY = y - size / 2 - 25
+    const frameWidth = width + 25
+    const frameHeight = size + 20
+    gCtx.beginPath()
+    gCtx.strokeStyle = 'black'
+    gCtx.lineWidth = 2
+    gCtx.strokeRect(frameX, frameY, frameWidth, frameHeight)
+}
 
 function renderTxtLineInInput() {
     const idx = getSelectedTxtLineIdx()
@@ -90,6 +101,7 @@ function onAddLine() {
     addTxtLine(newText)
     getSelectedTxtLineIdx()
     renderTxtLineInInput()
+
     renderMeme()
 }
 
@@ -108,23 +120,52 @@ function onDownloadCanvas(elLink) {
 
 function onTxtLineClick(ev) {
     ev.preventDefault()
-
     const { clickedX, clickedY } = getEvPos(ev)
-
     const lines = getTxtLines()
+
+    console.log(clickedX, clickedY)
 
     lines.forEach((line, idx) => {
         const { size, width, pos } = line
         const { x, y } = pos
 
-        const distanceX = Math.abs(x - clickedX)
-        const distanceY = Math.abs(y - clickedY)
+        const topLeftX = x - width / 2 - size - 10
+        const topRightX = x + width / 2 - size + 50
+        const bottomLeftX = x - width / 2 - 10
+        const bottomRightX = x + width / 2 + 50
 
-        if (distanceY <= size && distanceX <= width) {
+        const topLeftY = y - width / 2 - size + 40
+        const topRightY = y + width / 2 - size + 40
+        const bottomLeftY = y - width / 2 - 40
+        const bottomRightY = y + width / 2 - 40
+
+        if (clickedX >= topLeftX && clickedX <= topRightX && clickedX >= bottomLeftX && clickedX <= bottomRightX &&
+            clickedY >= topLeftY && clickedY <= topRightY && clickedY >= bottomLeftY && clickedY <= bottomRightY) {
             setSelectedTxtLineIdx(idx)
             renderTxtLineInInput()
             return
         }
+    })
+}
+
+function renderDot() {
+    const lines = getTxtLines()
+    const selectedLineIdx = getSelectedTxtLineIdx()
+
+    lines.forEach((line, idx) => {
+        if (!idx === selectedLineIdx) return
+        const { txt, size, color, pos } = line
+        const { x, y } = pos
+
+        gCtx.beginPath()
+        gCtx.arc(x, y, 2, 0, 2 * Math.PI) // draws a circle
+
+        gCtx.lineWidth = 4
+        gCtx.strokeStyle = 'orangered'
+        gCtx.stroke()
+
+        gCtx.fillStyle = 'white'
+        gCtx.fill()
     })
 }
 
@@ -138,39 +179,54 @@ function onAlign(action) {
     const idx = getSelectedTxtLineIdx()
     const line = lines[idx]
 
+    let { pos } = line
+    let { y } = pos
+
     switch (action) {
         case 'left':
-            line.pos.x = line.width / 2 + 10
+            // x = line.width / 2 + 10
+            setTxtLinePos(line.width / 2 + 10, y)
             break
         case 'center':
-            line.pos.x = gElCanvas.width / 2
+            // x = gElCanvas.width / 2
+            setTxtLinePos(gElCanvas.width / 2, y)
+
             break
         case 'right':
-            line.pos.x = gElCanvas.width - line.width / 2 - 10
+            // x = gElCanvas.width - line.width / 2 - 10
+            setTxtLinePos(gElCanvas.width - line.width / 2 - 10, y)
             break
     }
     renderMeme()
 }
 
 function onMoveTextLine(direction) {
+    // setTxtLinePos(x, y) 
+
     const step = 10
 
     const idx = getSelectedTxtLineIdx()
     const lines = getTxtLines()
     const line = lines[idx]
+    let { pos } = line
+    let { x, y } = pos
 
     switch (direction) {
         case 'up':
-            line.pos.y -= step
+            // y -= step
+            setTxtLinePos(x, y - step)
             break
         case 'down':
-            line.pos.y += step
+            // y += step
+            setTxtLinePos(x, y + step)
             break
         case 'left':
-            line.pos.x -= step
+            // x -= step
+            setTxtLinePos(x - step, y)
             break
         case 'right':
-            line.pos.x += step
+            // x += step
+            setTxtLinePos(x + step, y)
             break
     }
     renderMeme()
@@ -181,4 +237,9 @@ function onDeleteTxt() {
     const idx = getSelectedTxtLineIdx()
     deleteTxt(idx)
     renderMeme()
+}
+
+function onSaveMeme() {
+
+    saveMeme(val)
 }

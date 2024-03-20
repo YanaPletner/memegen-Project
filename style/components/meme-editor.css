@@ -4,7 +4,7 @@
 
     max-width: calc(100vw);
 
-    top: 230px;
+    top: 200px;
     left: 0;
     right: 0;
     /* inset: 0; */
@@ -43,7 +43,7 @@
     box-shadow: 0px 30px 30px -20px var(--shadow);
     border-radius: 0.5em;
     margin-block-start: 6em;
-    width: 70%;
+    /* width: 70%; */
 }
 
 .meme-editor .controls {
@@ -59,11 +59,11 @@
 
 input#text {
     height: 36px;
-    width: 12rem;
+    width: 14.5em;
 
     margin: 0;
     margin-block: 5px;
-    padding: 5px 10px;
+    padding: 5px 12px;
 
     color: rgb(14, 14, 16);
     font-size: 14px;
@@ -87,9 +87,9 @@ input#text:focus {
 
 .meme-editor .controls button {
     display: inline-block;
-    height: 3em;
-    width: 3em;
-    font-size: 15px;
+    height: 4em;
+    width: 4em;
+    font-size: 12px;
     border-radius: 5px;
     border: none;
     background-color: rgba(113, 233, 139, 0.5);
@@ -97,7 +97,7 @@ input#text:focus {
 
 .meme-editor .controls #fonts {
     height: 36px;
-    min-width: 12rem;
+    min-width: 12.7rem;
 
     padding: 5px 10px;
     margin-block: 5px;
