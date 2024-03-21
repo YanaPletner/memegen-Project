@@ -190,7 +190,9 @@ function onMoveTextLine(direction, ev) {
             setTxtLinePos(x + step, y)
             break
     }
+    onOpenMemeEditor()
     renderMeme()
+
 }
 
 function onDeleteTxt() {
