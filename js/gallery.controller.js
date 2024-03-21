@@ -38,7 +38,6 @@ function onRandomImg() {
         renderTxtLines()
     }
     onOpenMemeEditor()
-
 }
 
 
