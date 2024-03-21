@@ -19,3 +19,7 @@ body {
 .main-nav {
     place-self: end;
 }
+
+/* .gallery-container {
+    grid-auto-flow: dense;
+} */
