@@ -138,11 +138,11 @@ input#text:focus {
 }
 
 .save {
-    width: 12.1em;
-    height: 2.5em;
+    width: 12em;
+    height: 2.3em;
     background-color: #dee1e2;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     font-size: 17px;
 }
 
