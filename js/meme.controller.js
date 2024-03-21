@@ -95,10 +95,23 @@ function onSwitchTxtLine() {
 }
 
 function onDownloadCanvas(elLink) {
-    elLink.download = 'my-img'
+    // elLink.download = 'my-img'
 
-    const dataUrl = gElCanvas.toDataURL()
-    elLink.href = dataUrl
+    // const dataUrl = gElCanvas.toDataURL()
+    // elLink.href = dataUrl
+
+    elLink.download = 'my-img.png';
+    const dataUrl = gElCanvas.toDataURL('image/png');
+    elLink.href = dataUrl;
+
+    if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+        const event = new MouseEvent('click', {
+            view: window,
+            bubbles: false,
+            cancelable: true
+        });
+        elLink.dispatchEvent(event);
+    }
 }
 
 function onTxtLineClick(ev) {
@@ -112,12 +125,8 @@ function onTxtLineClick(ev) {
 
         const topLeftX = x - width / 2 - size - 10
         const topRightX = x + width / 2 - size + 50
-        // const bottomLeftX = x - width / 2 - 10
-        // const bottomRightX = x + width / 2 + 50
 
         const topLeftY = y - width / 2 - size + 40
-        // const topRightY = y + width / 2 - size + 40
-        // const bottomLeftY = y - width / 2 - 40
         const bottomRightY = y + width / 2 - 40
 
         if (clickedX >= topLeftX && clickedX <= topRightX &&
@@ -127,8 +136,6 @@ function onTxtLineClick(ev) {
             return
         }
     })
-    // clickedX >= bottomLeftX && clickedX <= bottomRightX &&
-    // clickedY <= topRightY && clickedY >= bottomLeftY &&
 }
 
 function onChangeTxtFont(font) {
