@@ -166,7 +166,8 @@ function onAlign(action) {
     renderMeme()
 }
 
-function onMoveTextLine(direction) {
+function onMoveTextLine(direction, ev) {
+    ev.preventDefault()
     const step = 10
 
     const idx = getSelectedTxtLineIdx()
