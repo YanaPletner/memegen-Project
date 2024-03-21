@@ -63,11 +63,12 @@
     }
 
     .gallery-container>img {
-        width: 60%;
+        width: 50%;
     }
 
     .meme-editor {
         padding-block-start: 0;
+        padding-block-end: 10em;
     }
 
     .meme-editor>div {
