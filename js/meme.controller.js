@@ -1,10 +1,12 @@
 "use strict"
 
 function renderMeme() {
+    // console.log(elImg)
     const meme = getMeme()
     const { selectedImgId } = meme
 
     const elImg = new Image()
+    elImg.src = elImg
     elImg.src = `meme-imgs/${selectedImgId}.jpg`
 
     elImg.onload = () => {
@@ -32,18 +34,11 @@ function renderTxtLines() {
         gCtx.fillStyle = color
         gCtx.lineWidth = 8
 
-        // gCtx.strokeText(txt, gElCanvas.width / 2, gElCanvas.height / 2)
-        // gCtx.fillText(txt, gElCanvas.width / 2, gElCanvas.height / 2)
-
         gCtx.strokeText(txt, x, y)
         gCtx.fillText(txt, x, y)
 
         const textWidth = gCtx.measureText(txt).width
         setTxtLineWidth(textWidth, idx)
-
-        // const clickedSize = size+10
-        // renderRectAroundText(idx)
-        // renderMeme()
     })
 }
 

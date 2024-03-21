@@ -8,6 +8,7 @@
     border: none;
     width: 100vw;
     height: 100%;
+    padding-block-start: 10em;
 
     top: 8%;
     left: 0;

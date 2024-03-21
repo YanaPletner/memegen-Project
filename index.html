@@ -57,7 +57,7 @@
         </section>
 
         <section class="meme-editor hidden">
-            <form method="dialog" class=" flex justify-content-center align-items-center">
+            <form class="flex justify-content-center align-items-center">
                 <button onclick="onCloseMemeEditor()" class="btn-close-editor">✕</button>
 
                 <section class="canvas-container">
@@ -111,6 +111,7 @@
                         <button onclick="onDeleteTxt()"><i class="fa-regular fa-trash-can"></i></button>
                     </section>
 
+
                     <section>
                         <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
                             onchange="onColorPick(this.value)">
@@ -120,6 +121,7 @@
                         <div><a href="#" onclick="onDownloadCanvas(this)" download="file-name">Download</a></div>
 
                     </section>
+
 
                     <section>
                         <button onclick="onSaveMeme()">save meme</button>

@@ -2,6 +2,8 @@
 
 let gElCanvas
 let gCtx
+let gElCurrImg
+
 // let gStartPos
 // let gClickPos
 
@@ -15,10 +17,7 @@ function onInit() {
 
     addListeners()
     renderGallery()
-    renderMeme()
-
-    // window.addEventListener('resize', (event) => resizeCanvas)
-
+    // renderMeme()
 }
 
 
@@ -53,13 +52,13 @@ function getEvPos(ev) {
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
-    // window.addEventListener('resize', (event) => resizeCanvas)
 }
 
 function onToggleMenu() {
     document.body.classList.toggle('menu-open')
 
     const elMenuBtn = document.querySelector('.toggle-menu-btn span')
+    // const elMenuBtnContainer = document.querySelector('.toggle-menu-btn')
     if (document.body.classList.contains('menu-open')) {
         elMenuBtn.innerHTML = '<span class="fa-solid fa-xmark"></span>'
     }
