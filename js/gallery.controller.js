@@ -36,8 +36,9 @@ function onRandomImg() {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         setImgId(currImgId)
         renderTxtLines()
-        onOpenMemeEditor()
     }
+    onOpenMemeEditor()
+
 }
 
 
