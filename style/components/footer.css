@@ -9,4 +9,6 @@ footer {
     left: 0;
     height: 2.5rem;
     background-color: var(--header-bgc);
+    letter-spacing: 2px;
+    font-family: mexcellent;
 }

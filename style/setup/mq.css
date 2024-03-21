@@ -74,7 +74,7 @@
         padding-block-start: 0;
     }
 
-    .meme-editor form {
+    .meme-editor>div {
         flex-direction: column;
     }
 

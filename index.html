@@ -22,7 +22,7 @@
     <script src="https://kit.fontawesome.com/05d66dc80e.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="onInit(event)">
+<body onload="onInit()">
     <header class="main-header main-header-layout">
         <div class="logo"><a href="#"><img src="logo-img/memegen-logo.png"></a></div>
 
@@ -58,7 +58,7 @@
         </section>
 
         <section class="meme-editor hidden">
-            <form class="flex justify-content-center align-items-center">
+            <div class="flex justify-content-center align-items-center">
                 <button onclick="onCloseMemeEditor()" class="btn-close-editor">✕</button>
 
                 <section class="canvas-container">
@@ -71,10 +71,10 @@
 
 
                     <section>
-                        <button onclick="onMoveTextLine('up',event)">↑</button>
-                        <button onclick="onMoveTextLine('down',event)">↓</button>
-                        <button onclick="onMoveTextLine('left',event)">←</button>
-                        <button onclick="onMoveTextLine('right',event)">→</button>
+                        <button onclick="onMoveTextLine('up')">↑</button>
+                        <button onclick="onMoveTextLine('down')">↓</button>
+                        <button onclick="onMoveTextLine('left')">←</button>
+                        <button onclick="onMoveTextLine('right')">→</button>
                     </section>
 
 
@@ -129,7 +129,7 @@
                     </section>
 
                 </aside>
-            </form>
+            </div>
         </section>
     </main>
 

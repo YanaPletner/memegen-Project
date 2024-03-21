@@ -16,7 +16,7 @@ var gMeme = {
     ]
 }
 
-function setImgId(imgId) {
+function setSelctedImgId(imgId) {
     gMeme.selectedImgId = imgId
 }
 
