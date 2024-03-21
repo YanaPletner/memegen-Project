@@ -9,15 +9,11 @@ function renderGallery() {
     for (let i = 1; i < gMaxMemes; i++) {
         gElGallery.innerHTML += `<img class='id-${i}' src='meme-imgs/${i}.jpg' onclick='onImgSelect(this)'></img>`
     }
-
-    console.log(gElGallery)
-    // gElGallery.innerHTML = "<img src='meme-imgs/1.jpg' class='id-1.jpg' onclick='onImgSelect(this)'>"
-    // gElGallery.innerHTML += "<img src='meme-imgs/2.jpg' class='id-2.jpg' onclick='onImgSelect(this)'>"
 }
 
 function onImgSelect(elImg) {
-    var classAttributeValue = elImg.getAttribute('class');
-    var imgId = classAttributeValue.match(/\d+/)[0];
+    var classAttributeValue = elImg.getAttribute('class')
+    var imgId = classAttributeValue.match(/\d+/)[0]
     setImgId(imgId)
 
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)

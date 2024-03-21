@@ -2,7 +2,7 @@
 const MEME_KEY = 'memeDB'
 
 var gMeme = {
-    selectedImgId: 1,  //1-43
+    selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
         {
@@ -10,16 +10,9 @@ var gMeme = {
             size: 30,
             font: 'Anton',
             color: 'white',
-            pos: { x: 200, y: 200 },
+            pos: { x: 100, y: 80 },
             isDrag: false,
         },
-        // {
-        //     txt: 'I am a baby',
-        //     size: 30,
-        //     color: 'white',
-        //     pos: { x: 100, y: 315 },
-        //     isDrag: false,
-        // }
     ]
 }
 
@@ -46,13 +39,11 @@ function setTxtLine(text) {
 
 function increaseTxtLineFontSize() {
     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    // selectedLine.size += 2
     _setTxtLineSize(selectedLine.size + 2, gMeme.selectedLineIdx)
 }
 
 function decreaseTxtLineFontSize() {
     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-    // selectedLine.size -= 2
     _setTxtLineSize(selectedLine.size - 2, gMeme.selectedLineIdx)
 }
 
@@ -67,8 +58,7 @@ function addTxtLine(text) {
         size: 30,
         font: 'anton',
         color: 'white',
-        pos: { x: 200, y: 200 },
-        // pos: { x: 315, y: 30 },
+        pos: { x: 100, y: 90 },
         isDrag: false,
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
@@ -76,7 +66,7 @@ function addTxtLine(text) {
 
 function switchTxtLine() {
     if (gMeme.lines.length > 1) {
-        gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length;
+        gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length
     }
 }
 
@@ -91,17 +81,17 @@ function setTxtLineWidth(width, idx) {
 }
 
 function isTxtLineClicked(clickedPos) {
-    const lines = gMeme.lines;
-    let isClicked = false;
+    const lines = gMeme.lines
+    let isClicked = false
 
     lines.forEach(line => {
-        const { pos, size, width } = line;
-        const { x, y } = pos;
+        const { pos, size, width } = line
+        const { x, y } = pos
 
-        const textLeftX = x - width / 2;
-        const textRightX = x + width / 2;
-        const textTopY = y - size / 2;
-        const textBottomY = y + size / 2;
+        const textLeftX = x - width / 2
+        const textRightX = x + width / 2
+        const textTopY = y - size / 2
+        const textBottomY = y + size / 2
 
         if (
             clickedPos.x >= textLeftX &&
@@ -109,11 +99,11 @@ function isTxtLineClicked(clickedPos) {
             clickedPos.y >= textTopY &&
             clickedPos.y <= textBottomY
         ) {
-            isClicked = true;
+            isClicked = true
         }
-    });
+    })
 
-    return isClicked;
+    return isClicked
 }
 
 function setSelectedTxtLineIdx(idx) {

@@ -2,14 +2,8 @@
 
 let gElCanvas
 let gCtx
-let gElCurrImg
-
-// let gStartPos
-// let gClickPos
-
 
 const TOUCH_EVENTS = ['touchstart', 'touchmove', 'touchend']
-
 
 function onInit() {
     gElCanvas = document.querySelector('canvas')
@@ -17,10 +11,8 @@ function onInit() {
 
     addListeners()
     renderGallery()
-    // renderMeme()
+    renderMeme()
 }
-
-
 
 function addMouseListeners() {
     gElCanvas.addEventListener('click', onTxtLineClick)
@@ -56,13 +48,11 @@ function addListeners() {
 
 function onToggleMenu() {
     document.body.classList.toggle('menu-open')
-
     const elMenuBtn = document.querySelector('.toggle-menu-btn span')
-    // const elMenuBtnContainer = document.querySelector('.toggle-menu-btn')
+
     if (document.body.classList.contains('menu-open')) {
         elMenuBtn.innerHTML = '<span class="fa-solid fa-xmark"></span>'
-    }
-    else {
+    } else {
         elMenuBtn.innerText = '☰'
     }
 }

@@ -1,7 +1,6 @@
 "use strict"
 
 function renderMeme() {
-    // console.log(elImg)
     const meme = getMeme()
     const { selectedImgId } = meme
 
@@ -42,21 +41,21 @@ function renderTxtLines() {
     })
 }
 
-function renderRectAroundText(idx) {
-    const lines = getTxtLines()
+// function renderRectAroundText(idx) {
+//     const lines = getTxtLines()
 
-    const { width, size, pos } = lines[idx]
-    const { x, y } = pos
+//     const { width, size, pos } = lines[idx]
+//     const { x, y } = pos
 
-    const frameX = x - width / 2 - 10
-    const frameY = y - size / 2 - 25
-    const frameWidth = width + 25
-    const frameHeight = size + 20
-    gCtx.beginPath()
-    gCtx.strokeStyle = 'black'
-    gCtx.lineWidth = 2
-    gCtx.strokeRect(frameX, frameY, frameWidth, frameHeight)
-}
+//     const frameX = x - width / 2 - 10
+//     const frameY = y - size / 2 - 25
+//     const frameWidth = width + 25
+//     const frameHeight = size + 20
+//     gCtx.beginPath()
+//     gCtx.strokeStyle = 'black'
+//     gCtx.lineWidth = 2
+//     gCtx.strokeRect(frameX, frameY, frameWidth, frameHeight)
+// }
 
 function renderTxtLineInInput() {
     const idx = getSelectedTxtLineIdx()
@@ -132,35 +131,12 @@ function onTxtLineClick(ev) {
 
         if (clickedX >= topLeftX && clickedX <= topRightX && clickedX >= bottomLeftX && clickedX <= bottomRightX &&
             clickedY >= topLeftY && clickedY <= topRightY && clickedY >= bottomLeftY && clickedY <= bottomRightY) {
-
-
             setSelectedTxtLineIdx(idx)
             renderTxtLineInInput()
             return
         }
     })
 }
-
-// function renderDot() {
-//     const lines = getTxtLines()
-//     const selectedLineIdx = getSelectedTxtLineIdx()
-
-//     lines.forEach((line, idx) => {
-//         if (!idx === selectedLineIdx) return
-//         const { txt, size, color, pos } = line
-//         const { x, y } = pos
-
-//         gCtx.beginPath()
-//         gCtx.arc(x, y, 2, 0, 2 * Math.PI) // draws a circle
-
-//         gCtx.lineWidth = 4
-//         gCtx.strokeStyle = 'orangered'
-//         gCtx.stroke()
-
-//         gCtx.fillStyle = 'white'
-//         gCtx.fill()
-//     })
-// }
 
 function onChangeFont(font) {
     setTtxLineFont(font)
@@ -177,16 +153,13 @@ function onAlign(action) {
 
     switch (action) {
         case 'left':
-            // x = line.width / 2 + 10
             setTxtLinePos(line.width / 2 + 10, y)
             break
         case 'center':
-            // x = gElCanvas.width / 2
             setTxtLinePos(gElCanvas.width / 2, y)
 
             break
         case 'right':
-            // x = gElCanvas.width - line.width / 2 - 10
             setTxtLinePos(gElCanvas.width - line.width / 2 - 10, y)
             break
     }
@@ -194,8 +167,6 @@ function onAlign(action) {
 }
 
 function onMoveTextLine(direction) {
-    // setTxtLinePos(x, y) 
-
     const step = 10
 
     const idx = getSelectedTxtLineIdx()
@@ -206,19 +177,15 @@ function onMoveTextLine(direction) {
 
     switch (direction) {
         case 'up':
-            // y -= step
             setTxtLinePos(x, y - step)
             break
         case 'down':
-            // y += step
             setTxtLinePos(x, y + step)
             break
         case 'left':
-            // x -= step
             setTxtLinePos(x - step, y)
             break
         case 'right':
-            // x += step
             setTxtLinePos(x + step, y)
             break
     }
@@ -233,6 +200,5 @@ function onDeleteTxt() {
 }
 
 function onSaveMeme() {
-
     saveMeme(val)
 }
