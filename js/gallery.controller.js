@@ -38,7 +38,7 @@ function onRandomImg() {
         gElCanvas.height = elImg.height * 3 / 5
 
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        // setSelectedImgId(currImgId)
+        setImgId(currImgId)
         renderTxtLines()
     }
     onOpenMemeEditor()
