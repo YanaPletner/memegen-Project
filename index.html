@@ -90,7 +90,7 @@
 
                     <section>
                         <label data-trans="font" for="fonts"></label>
-                        <select onchange="onChangeFont(this.value)" name="fonts" id="fonts">
+                        <select onchange="onChangeTxtFont(this.value)" name="fonts" id="fonts">
                             <option value="">Select Font</option>
                             <option value="Anton">Anton</option>
                             <option value="arial">Arial</option>
@@ -100,13 +100,13 @@
 
 
                     <section class="text-align-controls">
-                        <button title="Align left" onclick="onAlign('left')" class="btn"><i
+                        <button title="Align left" onclick="onAlignTxt('left')" class="btn"><i
                                 class="fa-solid fa-align-left"></i></button>
 
-                        <button title="Align center" onclick="onAlign('center')" class="btn"><i
+                        <button title="Align center" onclick="onAlignTxt('center')" class="btn"><i
                                 class="fa-solid fa-align-center"></i></button>
 
-                        <button title="Align right" onclick="onAlign('right')" class="btn"><i
+                        <button title="Align right" onclick="onAlignTxt('right')" class="btn"><i
                                 class="fa-solid fa-align-right"></i></button>
 
                         <button onclick="onDeleteTxt()"><i class="fa-regular fa-trash-can"></i></button>

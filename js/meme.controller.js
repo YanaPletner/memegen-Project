@@ -18,10 +18,9 @@ function renderMeme() {
 
 function renderTxtLines() {
     const lines = getTxtLines()
-    const selectedLineIdx = getSelectedTxtLineIdx()
+    // const selectedLineIdx = getSelectedTxtLineIdx()
 
     lines.forEach((line, idx) => {
-        if (!idx === selectedLineIdx) return
         const { txt, size, color, pos } = line
         const { x, y } = pos
 
@@ -84,13 +83,8 @@ function onColorPick(color) {
 }
 
 function onAddLine() {
-    let newText = document.getElementById('text').value
-    newText = 'ADD TEXT'
-
-    addTxtLine(newText)
-    getSelectedTxtLineIdx()
+    addTxtLine('ADD TEXT')
     renderTxtLineInInput()
-
     renderMeme()
 }
 
@@ -112,37 +106,37 @@ function onTxtLineClick(ev) {
     const { clickedX, clickedY } = getEvPos(ev)
     const lines = getTxtLines()
 
-    console.log(clickedX, clickedY)
-
     lines.forEach((line, idx) => {
         const { size, width, pos } = line
         const { x, y } = pos
 
         const topLeftX = x - width / 2 - size - 10
         const topRightX = x + width / 2 - size + 50
-        const bottomLeftX = x - width / 2 - 10
-        const bottomRightX = x + width / 2 + 50
+        // const bottomLeftX = x - width / 2 - 10
+        // const bottomRightX = x + width / 2 + 50
 
         const topLeftY = y - width / 2 - size + 40
-        const topRightY = y + width / 2 - size + 40
-        const bottomLeftY = y - width / 2 - 40
+        // const topRightY = y + width / 2 - size + 40
+        // const bottomLeftY = y - width / 2 - 40
         const bottomRightY = y + width / 2 - 40
 
-        if (clickedX >= topLeftX && clickedX <= topRightX && clickedX >= bottomLeftX && clickedX <= bottomRightX &&
-            clickedY >= topLeftY && clickedY <= topRightY && clickedY >= bottomLeftY && clickedY <= bottomRightY) {
+        if (clickedX >= topLeftX && clickedX <= topRightX &&
+            clickedY >= topLeftY && clickedY <= bottomRightY) {
             setSelectedTxtLineIdx(idx)
             renderTxtLineInInput()
             return
         }
     })
+    // clickedX >= bottomLeftX && clickedX <= bottomRightX &&
+    // clickedY <= topRightY && clickedY >= bottomLeftY &&
 }
 
-function onChangeFont(font) {
+function onChangeTxtFont(font) {
     setTtxLineFont(font)
     renderMeme()
 }
 
-function onAlign(action) {
+function onAlignTxt(action) {
     const lines = getTxtLines()
     const idx = getSelectedTxtLineIdx()
     const line = lines[idx]
@@ -166,7 +160,6 @@ function onAlign(action) {
 }
 
 function onMoveTextLine(direction) {
-    // ev.preventDefault()
     const step = 10
 
     const idx = getSelectedTxtLineIdx()

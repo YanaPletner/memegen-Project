@@ -20,6 +20,12 @@
 
     overflow-y: auto;
     z-index: 3;
+
+}
+
+.meme-editor form {
+    pointer-events: auto;
+
 }
 
 
