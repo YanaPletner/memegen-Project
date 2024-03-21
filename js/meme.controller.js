@@ -5,7 +5,6 @@ function renderMeme() {
     const { selectedImgId } = meme
 
     const elImg = new Image()
-    elImg.src = elImg
     elImg.src = `meme-imgs/${selectedImgId}.jpg`
 
     elImg.onload = () => {
@@ -190,7 +189,6 @@ function onMoveTextLine(direction) {
             setTxtLinePos(x + step, y)
             break
     }
-    // onOpenMemeEditor()
     renderMeme()
 }
 
