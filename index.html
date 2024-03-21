@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="style/components/serach-bar.css">
     <link rel="stylesheet" href="style/components/gallery.css">
     <link rel="stylesheet" href="style/components/meme-editor.css">
+    <link rel="stylesheet" href="style/components/saved-memes.css">
     <link rel="stylesheet" href="style/components/footer.css">
     <link rel="stylesheet" href="style/setup/mq.css">
 
@@ -28,13 +29,18 @@
 
         <nav class="main-nav">
             <ul class="main-nav-list clean-list flex">
-                <li class="flex"><a href="#" onclick="onRandomImg()"
+
+                <li class="flex"><a href="#" onclick="onRandomImg();onCloseSaved()"
                         class="flexible flex justify-content-center align-items-center">random</a></li>
+
                 <li class="flex"><a class="flex justify-content-center align-items-center" href="#"
-                        onclick="onCloseMemeEditor()">gallery</a></li>
-                <li class="flex"><a class="flex justify-content-center align-items-center" href="#">saved</a></li>
+                        onclick="onCloseMemeEditor();onCloseSaved()">gallery</a></li>
+
                 <li class="flex"><a class="flex justify-content-center align-items-center" href="#"
-                        onclick="onOpenMemeEditor()">editor</a></li>
+                        onclick="onOpenSaved();onCloseMemeEditor()">saved</a></li>
+
+                <li class="flex"><a class="flex justify-content-center align-items-center" href="#"
+                        onclick="onOpenMemeEditor();onCloseSaved()">editor</a></li>
 
             </ul>
         </nav>
@@ -130,6 +136,12 @@
                 </aside>
             </div>
         </section>
+
+        <section class="saved-memes-container hidden flex">
+            <button onclick="onCloseSaved()" class="btn-close-editor btn-close-saved">✕</button>
+            <div class="saved-memes">
+            </div>
+        </section>
     </main>
 
     <footer class="flex justify-content-center align-items-center">@Made By Yana Pletner 2024</footer>
@@ -141,6 +153,7 @@
     <!-- Conrollers -->
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
+    <script src="js/saved-memes.controller.js"></script>
     <script src="js/main.controller.js"></script>
 </body>
 

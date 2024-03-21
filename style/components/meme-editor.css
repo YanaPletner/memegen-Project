@@ -144,6 +144,11 @@ input#text:focus {
     border: none;
     border-radius: 5px;
     font-size: 17px;
+    cursor: pointer;
+}
+
+.save:hover {
+    background-color: #cecfcf;
 }
 
 .hidden {

@@ -192,6 +192,12 @@ function onDeleteTxt() {
     renderMeme()
 }
 
-function onSaveMeme() {
-    saveMeme(val)
+function onOpenMemeEditor() {
+    const elModal = document.querySelector('.meme-editor')
+    elModal.style.display = 'block'
+}
+
+function onCloseMemeEditor() {
+    const elModal = document.querySelector('.meme-editor')
+    elModal.style.display = 'none'
 }

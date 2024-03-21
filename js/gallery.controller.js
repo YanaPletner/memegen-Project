@@ -5,7 +5,7 @@ let gMaxMemes = 43
 
 function renderGallery() {
     gElGallery = document.querySelector('.gallery-container')
-    gElGallery.innerHTML = ""
+
     for (let i = 1; i <= gMaxMemes; i++) {
         gElGallery.innerHTML += `<img class='id-${i}' src='meme-imgs/${i}.jpg' onclick='onImgSelect(this)'></img>`
     }
@@ -33,15 +33,4 @@ function onRandomImg() {
     setSelctedImgId(currImgId)
     onOpenMemeEditor()
     renderMeme()
-}
-
-
-function onOpenMemeEditor() {
-    const elModal = document.querySelector('.meme-editor')
-    elModal.style.display = 'block'
-}
-
-function onCloseMemeEditor() {
-    const elModal = document.querySelector('.meme-editor')
-    elModal.style.display = 'none'
 }

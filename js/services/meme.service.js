@@ -1,5 +1,6 @@
 "use strict"
 const MEME_KEY = 'memeDB'
+let gMemes = loadFromStorage(MEME_KEY) || []
 
 var gMeme = {
     selectedImgId: 1,
@@ -7,7 +8,7 @@ var gMeme = {
     lines: [
         {
             txt: 'ADD TEXT',
-            size: 30,
+            size: 40,
             font: 'Anton',
             color: 'white',
             pos: { x: 100, y: 80 },
@@ -19,6 +20,11 @@ var gMeme = {
 function setSelctedImgId(imgId) {
     gMeme.selectedImgId = imgId
 }
+
+function getSelectedImgId() {
+    return gMeme.selectedImgId
+}
+
 
 function getMeme() {
     return gMeme
@@ -55,10 +61,10 @@ function setTxtLineColor(color) {
 function addTxtLine(text) {
     gMeme.lines.push({
         txt: text,
-        size: 30,
+        size: 40,
         font: 'anton',
         color: 'white',
-        pos: { x: 100, y: 90 },
+        pos: { x: 90, y: 100 },
         isDrag: false,
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
@@ -129,8 +135,9 @@ function setSelectedImgId(imgId) {
     gMeme.selectedImgId = imgId
 }
 
-function saveMeme(val) {
-    saveToStorage(MEME_KEY, val)
+function saveMeme(imgDataURL) {
+    gMemes.push(imgDataURL)
+    saveToStorage(MEME_KEY, gMemes)
 }
 
 function _setTxtLineSize(size, idx) {
