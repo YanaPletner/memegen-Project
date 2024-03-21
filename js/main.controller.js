@@ -5,7 +5,10 @@ let gCtx
 
 const TOUCH_EVENTS = ['touchstart', 'touchmove', 'touchend']
 
-function onInit() {
+function onInit(ev) {
+    console.log(ev.preventDefault)
+    ev.preventDefault()
+
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 

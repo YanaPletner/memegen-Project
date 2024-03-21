@@ -166,8 +166,8 @@ function onAlign(action) {
     renderMeme()
 }
 
-function onMoveTextLine(direction, ev) {
-    ev.preventDefault()
+function onMoveTextLine(direction) {
+    // ev.preventDefault()
     const step = 10
 
     const idx = getSelectedTxtLineIdx()
@@ -190,9 +190,8 @@ function onMoveTextLine(direction, ev) {
             setTxtLinePos(x + step, y)
             break
     }
-    onOpenMemeEditor()
+    // onOpenMemeEditor()
     renderMeme()
-
 }
 
 function onDeleteTxt() {
