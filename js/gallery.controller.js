@@ -14,12 +14,17 @@ function renderGallery() {
 function onImgSelect(elImg) {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
-    var classAttributeValue = elImg.getAttribute('class')
-    var imgId = classAttributeValue.match(/\d+/)[0]
+    const imgId = getElIdNumber(elImg)
     setImgId(imgId)
 
     onOpenMemeEditor()
     renderMeme()
+}
+
+function getElIdNumber(elImg) {
+    var classAttributeValue = elImg.getAttribute('class')
+    var imgId = classAttributeValue.match(/\d+/)[0]
+    return imgId
 }
 
 function onRandomImg() {
