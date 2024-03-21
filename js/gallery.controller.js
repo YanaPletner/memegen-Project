@@ -12,13 +12,10 @@ function renderGallery() {
 }
 
 function onImgSelect(elImg) {
-    // gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-
     const imgId = getElIdNumber(elImg)
     setSelectedImgId(imgId)
-
-    onOpenMemeEditor()
     renderMeme()
+    onOpenMemeEditor()
 }
 
 function getElIdNumber(elImg) {

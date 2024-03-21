@@ -17,8 +17,6 @@
         z-index: 5;
     }
 
-
-
     body.menu-open .main-nav {
         transform: translateX(0);
         height: 400px;
@@ -28,10 +26,8 @@
     .toggle-menu-btn {
         display: block;
         place-self: end;
-        /* height: 3em; */
         font-size: 30px;
         margin-inline: 0 1em;
-        /* margin-block-end: 8px; */
     }
 
     .main-nav .main-nav-list {
@@ -91,10 +87,3 @@
         margin-block-start: 1em;
     }
 }
-
-
-/* @media (max-width:1080px) {
-    .meme-editor .controls {
-        place-self: center;
-    }
-} */
