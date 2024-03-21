@@ -24,19 +24,20 @@ function onImgSelect(elImg) {
 function onRandomImg() {
     const random = getRandomInt(1, 43)
 
-    const elImg = new Image()
-    elImg.src = `meme-imgs/${random}.jpg`
+    // const elImg = new Image()
+    // elImg.src = `meme-imgs/${random}.jpg`
 
     const currImgId = random
 
-    elImg.onload = () => {
-        gElCanvas.width = elImg.width * 3 / 5
-        gElCanvas.height = elImg.height * 3 / 5
+    // elImg.onload = () => {
+    //     gElCanvas.width = elImg.width * 3 / 5
+    //     gElCanvas.height = elImg.height * 3 / 5
 
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        setImgId(currImgId)
-        renderTxtLines()
-    }
+    // gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+    setImgId(currImgId)
+    renderMeme()
+    renderTxtLines()
+    // }
     onOpenMemeEditor()
 }
 
