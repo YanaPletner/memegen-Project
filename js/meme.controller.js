@@ -95,23 +95,11 @@ function onSwitchTxtLine() {
 }
 
 function onDownloadCanvas(elLink) {
-    // elLink.download = 'my-img'
+    elLink.download = 'my-img.jpg'
 
-    // const dataUrl = gElCanvas.toDataURL()
-    // elLink.href = dataUrl
+    const dataUrl = gElCanvas.toDataURL()
+    elLink.href = dataUrl
 
-    elLink.download = 'my-img.jpg';
-    const dataUrl = gElCanvas.toDataURL('image/jpg');
-    elLink.href = dataUrl;
-
-    if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
-        const event = new MouseEvent('click', {
-            view: window,
-            bubbles: false,
-            cancelable: true
-        });
-        elLink.dispatchEvent(event);
-    }
 }
 
 function onTxtLineClick(ev) {
