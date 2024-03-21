@@ -100,8 +100,8 @@ function onDownloadCanvas(elLink) {
     // const dataUrl = gElCanvas.toDataURL()
     // elLink.href = dataUrl
 
-    elLink.download = 'my-img.png';
-    const dataUrl = gElCanvas.toDataURL('image/png');
+    elLink.download = 'my-img.jpg';
+    const dataUrl = gElCanvas.toDataURL('image/jpg');
     elLink.href = dataUrl;
 
     if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
