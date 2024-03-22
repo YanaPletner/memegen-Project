@@ -12,16 +12,17 @@ function onCloseSaved() {
 }
 
 function onSaveMeme() {
-    const idx = getSelectedImgId()
-    const data = gElCanvas.toDataURL(`${idx}/jpg`)
+    const id = getSelectedImgId()
+    console.log(id)
+    const data = gElCanvas.toDataURL(`${id}/jpg`)
     saveMeme(data)
 }
 
 function renderSavedMemes() {
     if (!gMemes.length || !gMemes) return
     const elSavedMemes = document.querySelector('.saved-memes')
+    elSavedMemes.innerHTML = ""
     for (let i = 1; i <= gMemes.length; i++) {
-        elSavedMemes.innerHTML = ""
         elSavedMemes.innerHTML += `<img class='id-${i}' src='meme-imgs/${i}.jpg' onclick='onImgSelect(this);onCloseSaved()'></img>`
     }
 }

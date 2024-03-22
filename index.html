@@ -47,16 +47,28 @@
         <button class="toggle-menu-btn" type="button" onclick="onToggleMenu()"><span>☰</span></button>
     </header>
 
-    <section class="search flex">
-        <input type="text" id="searchTerm" placeholder="Search... (does not work yet)">
-        <button type="submit" class="searchButton">
-            <i class="fa fa-search"></i>
-        </button>
-    </section>
+    <section class="filter flex">
+        <input type="text" id="filterInput" list="tags-list" placeholder="Search..." oninput="onFilter(this.value)">
 
-    <!-- doesnt exist tey -->
-    <nav class="tags-nav"></nav>
-    <!-- doesnt exist tey -->
+        <datalist id="tags-list">
+            <option value="all">
+            <option value="smile">
+            <option value="baby">
+            <option value="cute">
+            <option value="animal">
+            <option value="funny">
+            <option value="angry">
+            <option value="president">
+            <option value="dog">
+            <option value="cat">
+            <option value="man">
+            <option value="woman">
+            <option value="kiss">
+            <option value="cartoon">
+            <option value="nature">
+
+        </datalist>
+    </section>
 
     <main class="main-content">
         <section class="gallery-container grid">
@@ -152,6 +164,7 @@
 
     <!-- Conrollers -->
     <script src="js/gallery.controller.js"></script>
+    <script src="js/filter.controller.js"></script>
     <script src="js/meme.controller.js"></script>
     <script src="js/saved-memes.controller.js"></script>
     <script src="js/main.controller.js"></script>

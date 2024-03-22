@@ -5,8 +5,11 @@ let gMaxMemes = 43
 
 function renderGallery() {
     gElGallery = document.querySelector('.gallery-container')
+    renderGalleryImages(gMaxMemes)
+}
 
-    for (let i = 1; i <= gMaxMemes; i++) {
+function renderGalleryImages(maxNum) {
+    for (let i = 1; i <= maxNum; i++) {
         gElGallery.innerHTML += `<img class='id-${i}' src='meme-imgs/${i}.jpg' onclick='onImgSelect(this)'></img>`
     }
 }
@@ -29,7 +32,7 @@ function getElIdNumber(elImg) {
 function onRandomImg() {
     const random = getRandomInt(1, 43)
     const currImgId = random
-
+    console.log(currImgId)
     setSelctedImgId(currImgId)
     onOpenMemeEditor()
     renderMeme()
