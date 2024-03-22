@@ -45,6 +45,9 @@ function onFilter(value) {
         case 'angry':
             renderOption(gAngryImgsId)
             break
+        case 'president':
+            renderOption(gPresidentImgsId)
+            break
 
         case 'dog':
             renderOption(gDogImgsId)
