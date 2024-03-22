@@ -62,8 +62,13 @@
         height: 2em;
     }
 
+    .gallery-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .gallery-container>img {
-        width: 50%;
+        width: 80%;
+        margin-block: 1em;
     }
 
     .meme-editor {
