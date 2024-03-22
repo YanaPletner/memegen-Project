@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style/basic/helpers.css">
     <link rel="stylesheet" href="style/basic/layout.css">
     <link rel="stylesheet" href="style/components/header.css">
-    <link rel="stylesheet" href="style/components/serach-bar.css">
+    <link rel="stylesheet" href="style/components/filter.css">
     <link rel="stylesheet" href="style/components/gallery.css">
     <link rel="stylesheet" href="style/components/meme-editor.css">
     <link rel="stylesheet" href="style/components/saved-memes.css">
@@ -48,9 +48,9 @@
     </header>
 
     <section class="filter flex">
-        <input type="text" id="filterInput" list="tags-list" placeholder="Search..." oninput="onFilter(this.value)">
+        <input type="text" id="filterInput" list="filter-list" placeholder="Search..." oninput="onFilter(this.value)">
 
-        <datalist id="tags-list">
+        <datalist id="filter-list">
             <option value="all">
             <option value="smile">
             <option value="baby">
