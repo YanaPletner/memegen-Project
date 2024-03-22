@@ -111,18 +111,24 @@ input#text:focus {
     background: #dee1e2;
 }
 
+label[for="color"] {
+    align-items: center;
+    margin-inline: 5px;
+}
+
 .meme-editor .controls input[type='color'] {
-    width: 3.5em;
+    width: 7em;
     height: 3.5em;
     padding: 0;
-    margin-block-start: 5px;
     border: none;
+    cursor: pointer;
 }
 
 .download {
     background-color: #dee1e2;
-    width: 12.77em;
+    width: 13.7em;
     height: 2.5em;
+    font-size: 15px;
     border-radius: 6px;
     margin-block: 5px;
 }
@@ -138,12 +144,12 @@ input#text:focus {
 }
 
 .save {
-    width: 12em;
+    width: 13.7em;
     height: 2.3em;
     background-color: #dee1e2;
     border: none;
     border-radius: 5px;
-    font-size: 17px;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -153,14 +159,14 @@ input#text:focus {
 }
 
 .share {
-    width: 12em;
+    width: 13.7em;
     height: 2.3em;
     margin-block: 5px;
 
     background-color: #dee1e2;
     border: none;
     border-radius: 5px;
-    font-size: 17px;
+    font-size: 15px;
     cursor: pointer;
 }
 

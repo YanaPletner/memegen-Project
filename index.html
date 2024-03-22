@@ -107,7 +107,7 @@
 
 
                     <section>
-                        <label data-trans="font" for="fonts"></label>
+                        <label for="fonts"></label>
                         <select onchange="onChangeTxtFont(this.value)" name="fonts" id="fonts">
                             <option value="">Select Font</option>
                             <option value="Anton">Anton</option>
@@ -145,9 +145,10 @@
                         <button class="share" onclick="onUploadImg()">share on facebook</button>
                     </section>
 
-                    <section>
-                        <input type="color" id="color" name="color" vlaue="#000000" aria-label="shape-color"
-                            onchange="onColorPick(this.value)">
+                    <section class="flex ">
+                        <!-- <label data-trans="font" for="fonts"></label> -->
+                        <label for="color" class="flex">font color</label>
+                        <input type="color" id="color" name="color" value="#ffffff" onchange="onColorPick(this.value)">
                     </section>
                 </aside>
             </div>
