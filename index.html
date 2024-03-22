@@ -30,17 +30,17 @@
         <nav class="main-nav">
             <ul class="main-nav-list clean-list flex">
 
-                <li class="flex"><a href="#" onclick="onRandomImg();onCloseSaved()"
+                <li class="flex"><a href="#" onclick="onRandomImg();onCloseSaved();onToggleMenu()"
                         class="flexible flex justify-content-center align-items-center">random</a></li>
 
                 <li class="flex"><a class="flex justify-content-center align-items-center" href="#"
-                        onclick="onCloseMemeEditor();onCloseSaved()">gallery</a></li>
+                        onclick="onCloseMemeEditor();onCloseSaved();onToggleMenu()">gallery</a></li>
 
                 <li class="flex"><a class="flex justify-content-center align-items-center" href="#"
-                        onclick="onOpenSaved();onCloseMemeEditor()">saved</a></li>
+                        onclick="onOpenSaved();onCloseMemeEditor();onToggleMenu()">saved</a></li>
 
                 <li class="flex"><a class="flex justify-content-center align-items-center" href="#"
-                        onclick="onOpenMemeEditor();onCloseSaved()">editor</a></li>
+                        onclick="onOpenMemeEditor();onCloseSaved();onToggleMenu()">editor</a></li>
 
             </ul>
         </nav>
