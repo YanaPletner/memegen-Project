@@ -84,7 +84,7 @@ input#text:focus {
     outline: none;
 }
 
-.meme-editor .controls button:not(.save) {
+.meme-editor .controls button:not(.save, .share) {
     display: inline-block;
     height: 4em;
     width: 4em;
@@ -147,8 +147,21 @@ input#text:focus {
     cursor: pointer;
 }
 
-.save:hover {
+.save:hover,
+.share:hover {
     background-color: #cecfcf;
+}
+
+.share {
+    width: 12em;
+    height: 2.3em;
+    margin-block: 5px;
+
+    background-color: #dee1e2;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    cursor: pointer;
 }
 
 .hidden {
