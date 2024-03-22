@@ -3,6 +3,8 @@
 let gElCanvas
 let gCtx
 
+let gStartPos
+
 const TOUCH_EVENTS = ['touchstart', 'touchmove', 'touchend']
 
 function onInit() {
@@ -16,6 +18,9 @@ function onInit() {
 
 function addMouseListeners() {
     gElCanvas.addEventListener('click', onTxtLineClick)
+    gElCanvas.addEventListener('mousedown', onDown)
+    gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mouseup', onUp)
 }
 
 function addTouchListeners() {
@@ -39,6 +44,37 @@ function getEvPos(ev) {
             clickedY: ev.offsetY,
         }
     }
+}
+
+function onDown(ev) {
+    gStartPos = getEvPos(ev)
+    const lines = getTxtLines()
+
+    lines.forEach((line) => {
+        if (!isTxtLineClicked(gStartPos, line)) return
+
+        setTxtLineDrag(true)
+        gElCanvas.style.cursor = 'grabbing'
+    })
+}
+
+function onMove(ev) {
+    const lines = getTxtLines()
+    const idx = getSelectedTxtLineIdx()
+
+    const { isDrag, pos } = lines[idx]
+    if (!isDrag) return
+
+    const { clickedX, clickedY } = getEvPos(ev)
+    setTxtLinePos(clickedX, clickedY)
+
+    gStartPos = getEvPos(ev)
+    renderMeme()
+}
+
+function onUp() {
+    setTxtLineDrag(false)
+    gElCanvas.style.cursor = 'grab'
 }
 
 function addListeners() {

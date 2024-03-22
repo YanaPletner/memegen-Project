@@ -140,6 +140,12 @@ function saveMeme(imgDataURL) {
     saveToStorage(MEME_KEY, gMemes)
 }
 
+function setTxtLineDrag(isDrag) {
+    const idx = gMeme.selectedLineIdx
+    const selectedLine = gMeme.lines[idx]
+    selectedLine.isDrag = isDrag
+}
+
 function _setTxtLineSize(size, idx) {
     const selectedLine = gMeme.lines[idx]
     selectedLine.size = size

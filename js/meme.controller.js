@@ -18,7 +18,6 @@ function renderMeme() {
 
 function renderTxtLines() {
     const lines = getTxtLines()
-    // const selectedLineIdx = getSelectedTxtLineIdx()
 
     lines.forEach((line, idx) => {
         const { txt, size, color, pos } = line
@@ -38,22 +37,6 @@ function renderTxtLines() {
         setTxtLineWidth(textWidth, idx)
     })
 }
-
-// function renderRectAroundText(idx) {
-//     const lines = getTxtLines()
-
-//     const { width, size, pos } = lines[idx]
-//     const { x, y } = pos
-
-//     const frameX = x - width / 2 - 10
-//     const frameY = y - size / 2 - 25
-//     const frameWidth = width + 25
-//     const frameHeight = size + 20
-//     gCtx.beginPath()
-//     gCtx.strokeStyle = 'black'
-//     gCtx.lineWidth = 2
-//     gCtx.strokeRect(frameX, frameY, frameWidth, frameHeight)
-// }
 
 function renderTxtLineInInput() {
     const idx = getSelectedTxtLineIdx()
@@ -104,26 +87,31 @@ function onDownloadCanvas(elLink) {
 
 function onTxtLineClick(ev) {
     ev.preventDefault()
-    const { clickedX, clickedY } = getEvPos(ev)
     const lines = getTxtLines()
 
     lines.forEach((line, idx) => {
-        const { size, width, pos } = line
-        const { x, y } = pos
-
-        const topLeftX = x - width / 2 - size - 10
-        const topRightX = x + width / 2 - size + 50
-
-        const topLeftY = y - width / 2 - size + 40
-        const bottomRightY = y + width / 2 - 40
-
-        if (clickedX >= topLeftX && clickedX <= topRightX &&
-            clickedY >= topLeftY && clickedY <= bottomRightY) {
+        if (isTxtLineClicked(getEvPos(ev), line)) {
             setSelectedTxtLineIdx(idx)
             renderTxtLineInInput()
             return
         }
-    })
+    }
+    )
+}
+
+function isTxtLineClicked(clickPos, line) {
+    const { clickedX, clickedY } = clickPos
+
+    const { size, width, pos } = line
+    const { x, y } = pos
+
+    const topLeftX = x - width / 2 - size - 10
+    const topRightX = x + width / 2 - size + 50
+
+    const topLeftY = y - width / 2 - size + 40
+    const bottomRightY = y + width / 2 - 40
+
+    return clickedX >= topLeftX && clickedX <= topRightX && clickedY >= topLeftY && clickedY <= bottomRightY
 }
 
 function onChangeTxtFont(font) {
@@ -186,8 +174,6 @@ function onDeleteTxt() {
     deleteTxt(idx)
     renderMeme()
 }
-
-'use strict'
 
 function onUploadImg() {
     const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
