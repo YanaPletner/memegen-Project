@@ -99,21 +99,6 @@ function onTxtLineClick(ev) {
     )
 }
 
-function isTxtLineClicked(clickPos, line) {
-    const { clickedX, clickedY } = clickPos
-
-    const { size, width, pos } = line
-    const { x, y } = pos
-
-    const topLeftX = x - width / 2 - size - 10
-    const topRightX = x + width / 2 - size + 50
-
-    const topLeftY = y - width / 2 - size + 40
-    const bottomRightY = y + width / 2 - 40
-
-    return clickedX >= topLeftX && clickedX <= topRightX && clickedY >= topLeftY && clickedY <= bottomRightY
-}
-
 function onChangeTxtFont(font) {
     setTtxLineFont(font)
     renderMeme()

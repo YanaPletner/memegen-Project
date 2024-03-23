@@ -17,14 +17,13 @@ var gMeme = {
     ]
 }
 
-function setSelctedImgId(imgId) {
-    gMeme.selectedImgId = imgId
-}
-
 function getSelectedImgId() {
     return gMeme.selectedImgId
 }
 
+function setSelectedImgId(imgId) {
+    gMeme.selectedImgId = imgId
+}
 
 function getMeme() {
     return gMeme
@@ -86,32 +85,6 @@ function setTxtLineWidth(width, idx) {
     selectedLine.width = width
 }
 
-function isTxtLineClicked(clickedPos) {
-    const lines = gMeme.lines
-    let isClicked = false
-
-    lines.forEach(line => {
-        const { pos, size, width } = line
-        const { x, y } = pos
-
-        const textLeftX = x - width / 2
-        const textRightX = x + width / 2
-        const textTopY = y - size / 2
-        const textBottomY = y + size / 2
-
-        if (
-            clickedPos.x >= textLeftX &&
-            clickedPos.x <= textRightX &&
-            clickedPos.y >= textTopY &&
-            clickedPos.y <= textBottomY
-        ) {
-            isClicked = true
-        }
-    })
-
-    return isClicked
-}
-
 function setSelectedTxtLineIdx(idx) {
     gMeme.selectedLineIdx = idx
 }
@@ -131,8 +104,19 @@ function deleteTxt(idx) {
     gMeme.lines.splice(idx, 1)
 }
 
-function setSelectedImgId(imgId) {
-    gMeme.selectedImgId = imgId
+function isTxtLineClicked(clickPos, line) {
+    const { clickedX, clickedY } = clickPos
+
+    const { size, width, pos } = line
+    const { x, y } = pos
+
+    const topLeftX = x - width / 2 - size - 10
+    const topRightX = x + width / 2 - size + 50
+
+    const topLeftY = y - width / 2 - size + 40
+    const bottomRightY = y + width / 2 - 40
+
+    return clickedX >= topLeftX && clickedX <= topRightX && clickedY >= topLeftY && clickedY <= bottomRightY
 }
 
 function saveMeme(imgDataURL) {
