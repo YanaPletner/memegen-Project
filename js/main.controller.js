@@ -25,6 +25,9 @@ function addMouseListeners() {
 
 function addTouchListeners() {
     gElCanvas.addEventListener('touchclick', onTxtLineClick)
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchend', onUp)
 }
 
 function getEvPos(ev) {
@@ -62,7 +65,7 @@ function onMove(ev) {
     const lines = getTxtLines()
     const idx = getSelectedTxtLineIdx()
 
-    const { isDrag, pos } = lines[idx]
+    const { isDrag } = lines[idx]
     if (!isDrag) return
 
     const { clickedX, clickedY } = getEvPos(ev)
