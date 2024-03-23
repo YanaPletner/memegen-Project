@@ -53,9 +53,9 @@ function onDown(ev) {
     gStartPos = getEvPos(ev)
     const lines = getTxtLines()
 
-    lines.forEach((line) => {
+    lines.forEach((line, idx) => {
         if (!isTxtLineClicked(gStartPos, line)) return
-
+        setSelectedTxtLineIdx(idx)
         setTxtLineDrag(true)
         gElCanvas.style.cursor = 'grabbing'
     })
