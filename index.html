@@ -149,9 +149,29 @@
                         <label for="color" class="flex">font color</label>
                         <input type="color" id="color" name="color" value="#ffffff" onchange="onColorPick(this.value)">
                     </section>
+
+
+                    <section class="emoji-container grid justify-content-center align-items-center">
+                        <div class="emoji-select" onclick="onEmojiSelect(this)">&#128512
+
+                            <div class="module-wrapper">
+                                <div class="emojis-module grid"></div>
+                                <div class="module-pages flex space-between">
+                                    <button onclick="onPrevPage(event)" class="prev-page"><i
+                                            class="fa-solid fa-chevron-left"></i></button>
+                                    <button onclick="onNextPage(event)" class="next-page"><i
+                                            class="fa-solid fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </section>
+
                 </aside>
             </div>
         </section>
+
 
         <section class="saved-memes-container hidden flex">
             <button onclick="onCloseSaved()" class="btn-close-editor btn-close-saved">✕</button>

@@ -32,8 +32,7 @@ function getElIdNumber(elImg) {
 function onRandomImg() {
     const random = getRandomInt(1, 43)
     const currImgId = random
-    console.log(currImgId)
-    setSelctedImgId(currImgId)
+    setSelectedImgId(currImgId)
     onOpenMemeEditor()
     renderMeme()
 }

@@ -84,7 +84,7 @@ input#text:focus {
     outline: none;
 }
 
-.meme-editor .controls button:not(.save, .share) {
+.meme-editor .controls button:not(.save, .share, .emoji-item) {
     display: inline-block;
     height: 4em;
     width: 4em;
@@ -168,6 +168,67 @@ label[for="color"] {
     border-radius: 5px;
     font-size: 15px;
     cursor: pointer;
+}
+
+.emoji-select {
+    position: relative;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.module-wrapper {
+    pointer-events: none;
+    opacity: 0;
+    position: absolute;
+    top: 10em;
+    left: 5em;
+    bottom: 100em;
+    transform: translateX(-100%);
+    padding: 0.5em;
+    background: #fff;
+    border-radius: 0.5em;
+    box-shadow: 0 20px 30px -15px var(--blacka);
+    margin: 0;
+    margin-block-end: 20em;
+    transition: 0.25s opacity, top 0.5s;
+
+}
+
+.module-wrapper.open {
+    pointer-events: auto;
+    top: 2em;
+    opacity: 1;
+}
+
+.module-wrapper.open .emoji-item {
+    opacity: 1;
+}
+
+.emoji-item {
+    transition: background-color 0.2s, opacity 0.5s 0.2s;
+    opacity: 0;
+    padding: 0.5em;
+    margin: 0.1em;
+    border-radius: 2em;
+
+    width: 3em;
+    height: 3em;
+
+    font-size: 17px;
+    border-radius: 5px;
+    border: none;
+
+    background-color: rgba(113, 233, 139, 0.5);
+    cursor: pointer;
+}
+
+.module-wrapper .next-page,
+.module-wrapper .prev-page {
+    border-radius: 2em;
+    font-size: 0.55rem;
+    padding: 0.25em 0.5em;
+    margin-top: 5px;
+    margin-inline: 2px;
 }
 
 .hidden {

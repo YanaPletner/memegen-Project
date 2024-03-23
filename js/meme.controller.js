@@ -95,8 +95,7 @@ function onTxtLineClick(ev) {
             renderTxtLineInInput()
             return
         }
-    }
-    )
+    })
 }
 
 function onChangeTxtFont(font) {
@@ -187,6 +186,37 @@ function doUploadImg(imgDataUrl, onSuccess) {
     }
     XHR.open('POST', '//ca-upload.com/here/upload.php')
     XHR.send(formData)
+}
+
+function renderEmojis() {
+    let emojis = getEmojis()
+
+    const elEmojisModule = document.querySelector('.emojis-module')
+    const strHTMLS = emojis.map(emoji => `<button onclick="onEmojiClick(event,'&#${emoji}')" class="emoji-item">&#${emoji}</button>`)
+    elEmojisModule.innerHTML = strHTMLS.join('')
+}
+
+function onEmojiSelect(elEmoji) {
+    const elEmojisModule = elEmoji.querySelector('.module-wrapper')
+    elEmojisModule.classList.toggle('open')
+}
+
+function onEmojiClick(ev, emoji) {
+    ev.stopPropagation()
+    addTxtLine(emoji)
+    renderMeme()
+}
+
+function onPrevPage(ev) {
+    ev.stopPropagation()
+    prevPage()
+    renderEmojis()
+}
+
+function onNextPage(ev) {
+    ev.stopPropagation()
+    nextPage()
+    renderEmojis()
 }
 
 function onOpenMemeEditor() {

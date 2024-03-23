@@ -20,6 +20,9 @@ body {
     place-self: end;
 }
 
-/* .gallery-container {
+.emojis-module {
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: repeat(4, auto);
     grid-auto-flow: dense;
-} */
+    place-items: end;
+}
