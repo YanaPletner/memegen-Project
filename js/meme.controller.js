@@ -188,6 +188,7 @@ function doUploadImg(imgDataUrl, onSuccess) {
     XHR.send(formData)
 }
 
+
 function renderEmojis() {
     let emojis = getEmojis()
 
@@ -218,6 +219,7 @@ function onNextPage(ev) {
     nextPage()
     renderEmojis()
 }
+
 
 function onOpenMemeEditor() {
     const elModal = document.querySelector('.meme-editor')
