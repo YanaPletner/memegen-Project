@@ -222,15 +222,15 @@ function onNextPage(ev) {
 
 
 function onOpenMemeEditor() {
-    const elHtml = document.querySelector('html')
+    const elBody = document.querySelector('body')
     const elModal = document.querySelector('.meme-editor')
     elModal.style.display = 'block'
-    elHtml.style.overflow = 'hidden'
+    elBody.style.overflowY = 'hidden'
 }
 
 function onCloseMemeEditor() {
-    const elHtml = document.querySelector('html')
+    const elBody = document.querySelector('body')
     const elModal = document.querySelector('.meme-editor')
     elModal.style.display = 'none'
-    elHtml.style.overflow = 'auto'
+    elBody.style.overflowY = 'auto'
 }
