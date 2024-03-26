@@ -192,14 +192,14 @@ function doUploadImg(imgDataUrl, onSuccess) {
 function renderEmojis() {
     let emojis = getEmojis()
 
-    const elEmojisModule = document.querySelector('.emojis-module')
+    const elEmojisModal = document.querySelector('.emojis-modal')
     const strHTMLS = emojis.map(emoji => `<button onclick="onEmojiClick(event,'&#${emoji}')" class="emoji-item">&#${emoji}</button>`)
-    elEmojisModule.innerHTML = strHTMLS.join('')
+    elEmojisModal.innerHTML = strHTMLS.join('')
 }
 
 function onEmojiSelect(elEmoji) {
-    const elEmojisModule = elEmoji.querySelector('.module-wrapper')
-    elEmojisModule.classList.toggle('open')
+    const elEmojisModal = elEmoji.querySelector('.modal-wrapper')
+    elEmojisModal.classList.toggle('open')
 }
 
 function onEmojiClick(ev, emoji) {
