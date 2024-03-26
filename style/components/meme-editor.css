@@ -19,8 +19,6 @@
     box-shadow: 0px 30px 50px -30px var(--shadow);
 
     overflow-y: auto;
-    z-index: 3;
-
 }
 
 .btn-close-editor {

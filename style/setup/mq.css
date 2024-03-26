@@ -1,8 +1,4 @@
 @media(max-width:740px) {
-    .logo a {
-        font-size: 1.4em;
-    }
-
     .main-nav-list {
         padding: 0;
     }
@@ -17,7 +13,6 @@
 
         transform: translateX(100%);
         transition: 1s;
-        z-index: 5;
     }
 
     body.menu-open .main-nav {
@@ -58,7 +53,7 @@
 
     .main-nav-list li:hover a {
         width: 100%;
-        background-color: var(--header-list-hover);
+        background-color: var(--lighter-green);
     }
 
     .search .searchButton {
@@ -77,7 +72,6 @@
     .meme-editor {
         padding-block-start: 0;
         padding-block-end: 50em;
-
     }
 
     .meme-editor>div {

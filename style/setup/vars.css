@@ -1,8 +1,7 @@
 :root {
-    --dark-green-transparent: rgba(112, 214, 132, 0.5);
+    --dark-green-transparent: rgba(112, 214, 132);
     --light-green: rgb(96, 231, 125);
 
-    --header-list-hover: rgba(122, 231, 144, 0.5);
-    --list-hover: rgb(236, 237, 236);
+    --lighter-green: rgba(122, 231, 144, 0.5);
     --shadow: rgb(49, 77, 41);
 }
