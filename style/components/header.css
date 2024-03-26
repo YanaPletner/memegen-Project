@@ -4,11 +4,13 @@
 
 
 .main-header {
-    background-color: var(--header-bgc);
-    border: 1px solid var(--header-border);
+    position: fixed;
+    top: 0;
+    background-color: var(--dark-green-transparent);
+    border: 1px solid var(--light-green);
     border-radius: 50px;
     width: 97vw;
-    /* z-index: 2; */
+    z-index: 2;
 }
 
 .logo img {

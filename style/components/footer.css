@@ -8,7 +8,7 @@ footer {
     right: 0;
     left: 0;
     height: 2.5rem;
-    background-color: var(--header-bgc);
+    background-color: var(--dark-green-transparent);
     letter-spacing: 2px;
     font-family: mexcellent;
 }
