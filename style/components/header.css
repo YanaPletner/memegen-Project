@@ -13,11 +13,23 @@
     z-index: 2;
 }
 
-.logo img {
+/* .logo img {
     margin-inline-start: 1em;
     margin-block-start: 5px;
     width: 50%;
     min-width: 180px;
+} */
+
+.logo {
+    font-family: mexcellent;
+    margin-inline-start: 1em;
+
+}
+
+.logo a {
+    color: black;
+    text-decoration: none;
+    font-size: 2em;
 }
 
 .main-nav {

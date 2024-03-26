@@ -1,4 +1,8 @@
 @media(max-width:740px) {
+    .logo a {
+        font-size: 1.4em;
+    }
+
     .main-nav-list {
         padding: 0;
     }
@@ -24,7 +28,7 @@
 
     .toggle-menu-btn {
         display: block;
-        place-self: end;
+        place-self: center end;
         font-size: 30px;
         margin-inline: 0 1em;
     }
