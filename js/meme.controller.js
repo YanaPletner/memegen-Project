@@ -7,9 +7,14 @@ function renderMeme() {
     const elImg = new Image()
     elImg.src = `meme-imgs/${selectedImgId}.jpg`
 
+    const canvasWidth = gElCanvas.width
+    const canvasHeight = gElCanvas.height
+
     elImg.onload = () => {
-        gElCanvas.width = elImg.width * 3 / 5
-        gElCanvas.height = elImg.height * 3 / 5
+        // gElCanvas.width = elImg.width * 3 / 5
+        // gElCanvas.height = elImg.height * 3 / 5
+
+        gElCanvas.height = (elImg.height * canvasWidth) / elImg.width
 
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         renderTxtLines()
